@@ -13,6 +13,8 @@ class EditCertificateView: NSView {
     @IBOutlet weak var ChooseCSRField: NSTextField!
     @IBOutlet weak var SelectCerTypeButton: NSPopUpButton!
     
+    open var CSRFile_path: String?
+    
     public func clear() {
         
         self.ChooseCSRField.stringValue = ""

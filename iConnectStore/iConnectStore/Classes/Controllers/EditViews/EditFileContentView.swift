@@ -148,16 +148,121 @@ class EditFileContentView: NSView {
     }
     
     @IBAction func DoneAction(_ sender: NSButton) {
-        self.isHidden = true
-        self.edit_bundleID = nil
-        self.edit_device = nil
-        self.edit_profile = nil
-        self.bundleIDs = nil
-        self.devices = nil
-        self.certificates = nil
-        self.editCertificateView.clear()
-        self.editBundleIDView.clear()
-        self.editDeviceView.clear()
-        self.editProfileView.clear()
+        
+        self.upldateOrCreat { (res) -> (Void) in
+            if res == true {
+                self.isHidden = true
+                self.edit_bundleID = nil
+                self.edit_device = nil
+                self.edit_profile = nil
+                self.bundleIDs = nil
+                self.devices = nil
+                self.certificates = nil
+                self.editCertificateView.clear()
+                self.editBundleIDView.clear()
+                self.editDeviceView.clear()
+                self.editProfileView.clear()
+            }
+        }
+    }
+    
+    private func upldateOrCreat(complete: @escaping (Bool)->(Void)) {
+        
+        switch fileType {
+        case .certificate?:
+            //add cer
+            guard let CSR_path = self.editCertificateView.CSRFile_path else {
+                return
+            }
+            guard let selectTitle = self.editCertificateView.SelectCerTypeButton.selectedItem?.title else {
+                return
+            }
+            ProfileDataManager().creatCertificate(CSRPath: CSR_path, cerType: CertificateType(rawValue: selectTitle)!).done { (cer) in
+                complete(true)
+            }.catch { (Error) in
+                print(Error)
+                complete(false)
+            }
+            
+        case .bundleId?:
+            
+            if self.edit_bundleID == nil {
+                //add bundleID
+                let bundle_id = self.editBundleIDView.bundleIDField.stringValue
+                let name = self.editBundleIDView.nameField.stringValue
+                guard let selectPlatform = self.editBundleIDView.platformButton.selectedItem?.title else {
+                    return
+                }
+                guard bundle_id.count*name.count > 0 else {return}
+                ProfileDataManager().creatBundleId(id: bundle_id, name: name, platform: Platform(rawValue: selectPlatform)!).done { (bundleID) in
+                    complete(true)
+                }.catch { (Error) in
+                    print(Error)
+                    complete(false)
+                }
+
+            } else {
+                //update bundleID
+            }
+            
+        case .device?:
+            if self.edit_device == nil {
+                // Add Device
+                let udids = self.editDeviceView.UDIDField.stringValue.components(separatedBy: "&")
+                let names = self.editDeviceView.nameField.stringValue.components(separatedBy: "&")
+                guard let selectPlatform = self.editDeviceView.platformButton.selectedItem?.title else {
+                    return
+                }
+                guard udids.count == names.count && udids.count != 0 else {return}
+                ProfileDataManager().registerdNewDevices(names:names ,udids: udids, platform: Platform(rawValue: selectPlatform)!).done { (devices) in
+                    complete(true)
+                }.catch { (Error) in
+                    print(Error)
+                    complete(false)
+                }
+                
+            } else {
+                // update Device
+                
+            }
+            
+        case .profile?:
+            if self.edit_profile == nil {
+                // Add Profile
+                let name = self.editProfileView.nameField.stringValue
+                guard let selectBundleID = self.editProfileView.selectBundleButton.selectedItem?.title else {
+                    return
+                }
+                guard let selectProfileType = self.editProfileView.selectProfileTypeButton.selectedItem?.title else {
+                    return
+                }
+                guard let selectDevices = self.editProfileView.devices else {
+                    return
+                }
+                guard let selectCertificates = self.editProfileView.certificates else {
+                    return
+                }
+                guard selectDevices.count*selectCertificates.count != 0 else {return}
+                var device_ids: [String] = []
+                for device in selectDevices {
+                    device_ids.append(device.id)
+                }
+                var certificate_ids: [String] = []
+                for cer in selectCertificates {
+                    certificate_ids.append(cer.id)
+                }
+                ProfileDataManager().creatProvisionFile(name: name, bundleId: selectBundleID, profileType:selectProfileType, certificates: certificate_ids, devices: device_ids).done { (devices) in
+                    complete(true)
+                }.catch { (Error) in
+                    print(Error)
+                    complete(false)
+                }
+
+            } else {
+                // update Profile
+               
+            }
+        case .none: break
+        }
     }
 }

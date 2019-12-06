@@ -56,7 +56,7 @@ struct ProfileDataManager {
         return p
     }
     
-    func registerdNewDevices(udids: [String], platform: Platform) -> Promise<[Device]> {
+    func registerdNewDevices(names:[String], udids: [String], platform: Platform) -> Promise<[Device]> {
         
         print("register new devices: \(udids)")
         let p = Promise<[Device]> { resolver in
@@ -71,12 +71,13 @@ struct ProfileDataManager {
             let workingQueue = DispatchQueue(label: "request_register_device")
             var register_devices: [Device] = []
             
+            var i = 0
             for udid in udids {
                 
                 workingGroup.enter()
                 workingQueue.async {
                     
-                    let endpoint = APIEndpoint.registerNewDevice(name: udid, udid: udid, platform: platform.rawValue)
+                    let endpoint = APIEndpoint.registerNewDevice(name: names[i], udid: udid, platform: platform.rawValue)
                     self.provider!.request(endpoint) {
                         switch $0 {
                         case .success(let deviceResponse):
@@ -88,6 +89,8 @@ struct ProfileDataManager {
                         // 出组
                         workingGroup.leave()
                     }
+                    
+                    i += 1
                 }
             }
             
@@ -104,7 +107,7 @@ struct ProfileDataManager {
         
         let p = Promise<[BundleId]> { resolver in
             
-            let endpoint = APIEndpoint.bundleIds(fields: [.bundleIds([.bundleIdCapabilities, .identifier, .name, .platform, .profiles, .seedId]), .profiles([.bundleId, .certificates, .createdDate, .devices, .expirationDate, .name, .platform, .profileContent, .profileState, .profileType, .uuid])])
+            let endpoint = APIEndpoint.bundleIds(fields: [.bundleIds([.bundleIdCapabilities, .identifier, .name, .platform, .profiles, .seedId]), .profiles([.bundleId, .certificates, .createdDate, .devices, .expirationDate, .name, .platform, .profileContent, .profileState, .profileType, .uuid]), .bundleIdCapabilities([.bundleId, .capabilityType, .settings])])
             provider!.request(endpoint) {
                 switch $0 {
                 case .success(let bundleIdResponse):
@@ -119,11 +122,11 @@ struct ProfileDataManager {
         return p
     }
     
-    func creatBundleId(id: String, name: String) -> Promise<BundleId> {
+    func creatBundleId(id: String, name: String, platform: Platform) -> Promise<BundleId> {
         
         let p = Promise<BundleId> { resolver in
             
-            let endpoint = APIEndpoint.register(bundle_id: id, name: name, platform: .ios)
+            let endpoint = APIEndpoint.register(bundle_id: id, name: name, platform: platform)
             provider!.request(endpoint) {
                 switch $0 {
                 case .success(let bundleIdResponse):
@@ -158,7 +161,7 @@ struct ProfileDataManager {
         return p
     }
     
-    func creatCertificate(CSRPath: String) -> Promise<Certificate> {
+    func creatCertificate(CSRPath: String, cerType: CertificateType) -> Promise<Certificate> {
         
         let p = Promise<Certificate> { resolver in
             
@@ -181,7 +184,7 @@ struct ProfileDataManager {
             }
             
             //name: "Created via API"
-            let endpoint = APIEndpoint.creatCertificate(certificateType: .ios_development, csrContent: csrContent)
+            let endpoint = APIEndpoint.creatCertificate(certificateType: cerType, csrContent: csrContent)
             provider!.request(endpoint) {
                 switch $0 {
                 case .success(let certificateResponse):
@@ -201,7 +204,7 @@ struct ProfileDataManager {
         
         let p = Promise<[Profile]> { resolver in
             
-            let endpoint = APIEndpoint.listAndDownloadProfiles(fields: [.profiles([.bundleId, .certificates, .createdDate, .devices, .expirationDate, .name, .platform, .profileContent, .profileState, .profileType, .uuid]), .certificates([.certificateContent, .certificateType, .csrContent, .displayName, .expirationDate, .name, .platform, .serialNumber])])
+            let endpoint = APIEndpoint.listAndDownloadProfiles(fields: [.profiles([.bundleId, .certificates, .createdDate, .devices, .expirationDate, .name, .platform, .profileContent, .profileState, .profileType, .uuid]), .certificates([.certificateContent, .certificateType, .csrContent, .displayName, .expirationDate, .name, .platform, .serialNumber]), .devices([.addedDate, .deviceClass, .model, .name, .platform, .status, .udid])], include:[.devices])
             provider!.request(endpoint) {
                 switch $0 {
                 case .success(let profilesResponse):
@@ -217,13 +220,14 @@ struct ProfileDataManager {
     }
     
     func creatProvisionFile(name : String,
-                                    bundleId : String,
-                                    certificates : [String],
-                                    devices : [String]) -> Promise<Profile> {
+                            bundleId : String,
+                            profileType: String,
+                            certificates : [String],
+                            devices : [String]) -> Promise<Profile> {
         
         let p = Promise<Profile> { resolver in
             
-            let endpoint = APIEndpoint.creatProfile(name: name, profileType: ProfileType.ios_development.rawValue, bundle_id: bundleId, certificates: certificates, devices: devices)
+            let endpoint = APIEndpoint.creatProfile(name: name, profileType: profileType, bundle_id: bundleId, certificates: certificates, devices: devices)
             provider!.request(endpoint) {
                 switch $0 {
                 case .success(let profileResponse):

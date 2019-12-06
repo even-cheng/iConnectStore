@@ -15,7 +15,7 @@ class EditProfileView: NSView {
     @IBOutlet weak var selectProfileTypeButton: NSPopUpButton!
     @IBOutlet weak var selectDevicesField: NSTextField!
     @IBOutlet weak var selectCertificatesField: NSTextField!
-    
+        
     open var profile: Profile? {
         didSet{
             self.nameField.stringValue = profile?.attributes?.name ?? ""
