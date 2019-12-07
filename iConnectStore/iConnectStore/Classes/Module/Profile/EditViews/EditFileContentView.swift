@@ -20,7 +20,8 @@ class EditFileContentView: NSView {
     }
 
     open var submitSuccessAction: (()->(Void))?
-    
+
+    open var edit_profile: Profile?
     open var edit_bundleID: BundleId?
     open var edit_device: Device?
     
@@ -104,7 +105,7 @@ class EditFileContentView: NSView {
                 self.titleField.stringValue = "Add BundleID"
                 self.editBundleIDView.clear()
             } else {
-                self.titleField.stringValue = "Edit BundleID"
+                self.titleField.stringValue = "Modify BundleID"
                 self.editBundleIDView.bundleID = self.edit_bundleID
             }
            
@@ -119,7 +120,7 @@ class EditFileContentView: NSView {
                 self.titleField.stringValue = "Add Device"
                 self.editDeviceView.clear()
             } else {
-                self.titleField.stringValue = "Edit Device"
+                self.titleField.stringValue = "Modify Device"
                 self.editDeviceView.device = self.edit_device
             }
 
@@ -133,8 +134,13 @@ class EditFileContentView: NSView {
             self.editProfileView.devices = self.devices
             self.editProfileView.bundleIDs = self.bundleIDs
             self.editProfileView.certificates = self.certificates
-            self.titleField.stringValue = "Add Profile"
-            self.editProfileView.clear()
+            if self.edit_profile == nil {
+                self.titleField.stringValue = "Add Profile"
+                self.editProfileView.clear()
+            } else {
+                self.titleField.stringValue = "Modify Profile"
+                self.editProfileView.profile = self.edit_profile
+            }
             
         case .none: break
         }
@@ -149,6 +155,7 @@ class EditFileContentView: NSView {
         self.isHidden = true
         self.edit_bundleID = nil
         self.edit_device = nil
+        self.edit_profile = nil
         self.bundleIDs = nil
         self.devices = nil
         self.certificates = nil
@@ -259,10 +266,10 @@ class EditFileContentView: NSView {
             guard let selectProfileType = self.editProfileView.selectProfileTypeButton.selectedItem?.title else {
                 return
             }
-            guard let selectDevices = self.editProfileView.devices else {
+            guard let selectDevices = self.editProfileView.selectDevices else {
                 return
             }
-            guard let selectCertificates = self.editProfileView.certificates else {
+            guard let selectCertificates = self.editProfileView.selectCertificates else {
                 return
             }
             guard selectDevices.count*selectCertificates.count != 0 else {return}
@@ -285,12 +292,36 @@ class EditFileContentView: NSView {
                 }
             }
             let bundle_id = self.bundleIDs![self.editProfileView.selectBundleButton.indexOfSelectedItem].id
-            ProfileDataManager().creatProvisionFile(name: name, bundleId: bundle_id, profileType:selectProfileType, certificates: certificate_ids, devices: device_ids).done { (devices) in
-                complete(true)
-            }.catch { (Error) in
-                print(Error)
-                complete(false)
+            
+            if self.edit_device == nil {
+                // creatProvisionFile
+                ProfileDataManager().creatProvisionFile(name: name, bundleId: bundle_id, profileType:selectProfileType, certificates: certificate_ids, devices: device_ids).done { (devices) in
+                    complete(true)
+                }.catch { (Error) in
+                    print(Error)
+                    complete(false)
+                }
+                
+            } else {
+                
+                ProfileDataManager().deleteProvisionFile(id: self.edit_profile!.id).done { (res) in
+                    if res == false {
+                        complete(false)
+                        return
+                    }
+                    // creatProvisionFile
+                    ProfileDataManager().creatProvisionFile(name: name, bundleId: bundle_id, profileType:selectProfileType, certificates: certificate_ids, devices: device_ids).done { (devices) in
+                        complete(true)
+                    }.catch { (Error) in
+                        print(Error)
+                        complete(false)
+                    }
+                }.catch { (Error) in
+                    print(Error)
+                    complete(false)
+                }
             }
+            
 
         case .none: break
         }

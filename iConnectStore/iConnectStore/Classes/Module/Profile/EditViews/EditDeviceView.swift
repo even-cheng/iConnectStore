@@ -26,6 +26,7 @@ class EditDeviceView: NSView {
         self.nameField.stringValue = ""
         self.UDIDField.stringValue = ""
         self.UDIDField.isEnabled = true
+        self.device = nil
     }
     
     //MARK: Functions

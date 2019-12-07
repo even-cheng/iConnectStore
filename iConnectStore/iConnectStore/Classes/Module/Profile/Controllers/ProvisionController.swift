@@ -239,6 +239,7 @@ class ProvisionController: NSViewController {
             let device = self.devices![contentTableView.selectedRow]
             self.editContentView.edit_device = device
         case .profile:
+            self.editContentView.edit_profile = self.profiles![contentTableView.selectedRow]
             self.editContentView.certificates = self.certificates
             self.editContentView.devices = self.devices
             self.editContentView.bundleIDs = self.bundleIDs
@@ -666,7 +667,7 @@ extension ProvisionController: ContextMenu{
         case .device:
             addItemToMenu(itemTypes: [.check, .edit, .add])
         case .profile:
-            addItemToMenu(itemTypes: [.check, .add, .download, .delete])
+            addItemToMenu(itemTypes: [.check, .edit ,.add, .download, .delete])
         }
         return self.editMenu
     }

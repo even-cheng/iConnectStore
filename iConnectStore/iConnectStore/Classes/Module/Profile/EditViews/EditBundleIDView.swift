@@ -29,6 +29,7 @@ class EditBundleIDView: NSView {
         bundleIDField.isEnabled = true
         self.nameField.stringValue = ""
         self.bundleIDField.stringValue = ""
+        self.bundleID = nil
     }
     
     //MARK: Functions
