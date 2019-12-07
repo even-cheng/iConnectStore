@@ -768,6 +768,7 @@
 				1487674B238E1ECB00396E9C /* AppStoreConnect-Swift-SDK */,
 				1482EF93238BD6A90047CF58 /* AppDelegate.swift */,
 				1482EF95238BD6A90047CF58 /* ViewController.swift */,
+				14B033B2238FAF560038083D /* SettingController.swift */,
 				14876A0E238E64F600396E9C /* WindowController.swift */,
 				1482EF97238BD6A90047CF58 /* Assets.xcassets */,
 				1482EF99238BD6A90047CF58 /* Main.storyboard */,
@@ -1414,7 +1415,6 @@
 				14B033AC238FAF370038083D /* ProvisionController.swift */,
 				14B033AE238FAF450038083D /* ReportController.swift */,
 				14B033B0238FAF4D0038083D /* DataController.swift */,
-				14B033B2238FAF560038083D /* SettingController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
