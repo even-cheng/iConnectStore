@@ -12,9 +12,7 @@ class EditCertificateView: NSView {
     
     @IBOutlet weak var ChooseCSRField: NSTextField!
     @IBOutlet weak var SelectCerTypeButton: NSPopUpButton!
-    
-    open var CSRFile_path: String?
-    
+        
     public func clear() {
         
         self.ChooseCSRField.stringValue = ""
@@ -27,6 +25,17 @@ class EditCertificateView: NSView {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    @IBAction func chooseCSRAction(_ sender: Any) {
+        
+        ProfileDataManager().choosePath(fileType: "certSigningRequest", can_directory: false, can_file: true, message: "Please choose .certSigningRequest").done {[weak self] (csr_path) in
+            
+            self?.ChooseCSRField.stringValue = csr_path
+            
+        }.catch { (error) in
+            print(error)
+        }
     }
     
     override func awakeFromNib() {

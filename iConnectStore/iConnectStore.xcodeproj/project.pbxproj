@@ -333,6 +333,8 @@
 		14B033B1238FAF4D0038083D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033B0238FAF4D0038083D /* DataController.swift */; };
 		14B033B3238FAF560038083D /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033B2238FAF560038083D /* SettingController.swift */; };
 		14CDE79223990683000C5E60 /* EditFileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CDE79123990683000C5E60 /* EditFileContentView.swift */; };
+		14DF7BEF239B3DC00012D1C7 /* NSTask-execute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF7BEE239B3DC00012D1C7 /* NSTask-execute.swift */; };
+		14DF7BF1239B3DDA0012D1C7 /* StringByAppendingPathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF7BF0239B3DDA0012D1C7 /* StringByAppendingPathComponent.swift */; };
 		9DAA1848A10F1ED38A6B3CFD /* Pods_iConnectStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD886EC27C6C35177CEFE238 /* Pods_iConnectStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -688,6 +690,8 @@
 		14B033B0238FAF4D0038083D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		14B033B2238FAF560038083D /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		14CDE79123990683000C5E60 /* EditFileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFileContentView.swift; sourceTree = "<group>"; };
+		14DF7BEE239B3DC00012D1C7 /* NSTask-execute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTask-execute.swift"; sourceTree = "<group>"; };
+		14DF7BF0239B3DDA0012D1C7 /* StringByAppendingPathComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringByAppendingPathComponent.swift; sourceTree = "<group>"; };
 		A0718EA94C5E81219E60E90A /* Pods-iConnectStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnectStore.debug.xcconfig"; path = "Target Support Files/Pods-iConnectStore/Pods-iConnectStore.debug.xcconfig"; sourceTree = "<group>"; };
 		E2FE5ABC5701FB9EA30CD8E9 /* Pods-iConnectStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnectStore.release.xcconfig"; path = "Target Support Files/Pods-iConnectStore/Pods-iConnectStore.release.xcconfig"; sourceTree = "<group>"; };
 		FD886EC27C6C35177CEFE238 /* Pods_iConnectStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iConnectStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1361,6 +1365,7 @@
 		14876A0B238E271A00396E9C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				14DF7BF2239B3DE90012D1C7 /* Tools */,
 				14B033A7238FAF070038083D /* Controllers */,
 			);
 			path = Classes;
@@ -1387,6 +1392,15 @@
 				14B033B2238FAF560038083D /* SettingController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		14DF7BF2239B3DE90012D1C7 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				14DF7BEE239B3DC00012D1C7 /* NSTask-execute.swift */,
+				14DF7BF0239B3DDA0012D1C7 /* StringByAppendingPathComponent.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		B76588B2C715042036F0B4E8 /* Pods */ = {
@@ -1827,6 +1841,7 @@
 				148769A3238E1ECE00396E9C /* BuildAppLinkageResponse.swift in Sources */,
 				14876917238E1ECD00396E9C /* CertificateCreateRequest.swift in Sources */,
 				14876940238E1ECD00396E9C /* ListAppsVisibleToUser.swift in Sources */,
+				14DF7BEF239B3DC00012D1C7 /* NSTask-execute.swift in Sources */,
 				148769BF238E1ECE00396E9C /* UserVisibleAppsLinkagesResponse.swift in Sources */,
 				1487693D238E1ECD00396E9C /* RemoveVisibleAppsFromUser.swift in Sources */,
 				14876962238E1ECD00396E9C /* PrereleaseVersionAppLinkageResponse.swift in Sources */,
@@ -1899,6 +1914,7 @@
 				1487694F238E1ECD00396E9C /* BetaTesterInvitation.swift in Sources */,
 				148769B0238E1ECE00396E9C /* UserInvitationCreateRequest.swift in Sources */,
 				14876987238E1ECE00396E9C /* BetaGroupBetaTestersLinkagesRequest.swift in Sources */,
+				14DF7BF1239B3DDA0012D1C7 /* StringByAppendingPathComponent.swift in Sources */,
 				148768B3238E1ECC00396E9C /* ReadBuildInformationOfBetaAppReviewSubmission.swift in Sources */,
 				148768EB238E1ECD00396E9C /* ReadAppInformationOfBetaAppReviewDetail.swift in Sources */,
 				1487694E238E1ECD00396E9C /* BetaGroupBuildsLinkagesRequest.swift in Sources */,

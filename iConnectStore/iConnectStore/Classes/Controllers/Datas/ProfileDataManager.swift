@@ -103,6 +103,25 @@ struct ProfileDataManager {
         return p
     }
     
+    func updateDevice(id: String,  name: String, status: DeviceStatus) -> Promise<Device> {
+        
+        let p = Promise<Device> { resolver in
+            
+            let endpoint = APIEndpoint.modifyRegisteredDevice(id: id, name: name, status: status)
+            provider!.request(endpoint) {
+                switch $0 {
+                case .success(let response):
+                    let device: Device = response.data
+                    resolver.fulfill(device)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+        
+        return p
+    }
+    
     func listBundles() -> Promise<[BundleId]> {
         
         let p = Promise<[BundleId]> { resolver in
@@ -127,6 +146,25 @@ struct ProfileDataManager {
         let p = Promise<BundleId> { resolver in
             
             let endpoint = APIEndpoint.register(bundle_id: id, name: name, platform: platform)
+            provider!.request(endpoint) {
+                switch $0 {
+                case .success(let bundleIdResponse):
+                    let bundleId: BundleId = bundleIdResponse.data
+                    resolver.fulfill(bundleId)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+        
+        return p
+    }
+    
+    func updateBundleId(id: String, new_name: String) -> Promise<BundleId> {
+        
+        let p = Promise<BundleId> { resolver in
+            
+            let endpoint = APIEndpoint.modifyBundleID(id: id, new_name: new_name)
             provider!.request(endpoint) {
                 switch $0 {
                 case .success(let bundleIdResponse):
@@ -291,6 +329,101 @@ struct ProfileDataManager {
                     resolver.reject(error)
                 }
             }
+        }
+        
+        return p
+    }
+    
+    func downloadCertificate(certificate: Certificate, save_name: String, complete:@escaping (Bool, String?)->(Void)) {
+
+        self.choosePath(fileType: "", can_directory: true, can_file: false, message: "Please choose a directory to save .cer").then { (path) -> Promise<String> in
+            let cerContent = certificate.attributes?.certificateContent
+            return self.saveFileWithContent(cerContent, filePath: path.stringByAppendingPathComponent(save_name+".cer"))
+        }.done { (save_path) in
+            complete(true, save_path)
+        }.catch { (error) in
+            complete(false, nil)
+        }
+    }
+    
+    func downloadProfile(profile: Profile, save_name: String, complete:@escaping (Bool, String?)->(Void)){
+        self.choosePath(fileType: "", can_directory: true, can_file: false, message: "Please choose a directory to save .mobilePrividsion").then { (path) -> Promise<String> in
+            let cerContent = profile.attributes?.profileContent
+            return self.saveFileWithContent(cerContent, filePath: path.stringByAppendingPathComponent(save_name+".mobileprovision"))
+        }.done { (save_path) in
+            complete(true, save_path)
+        }.catch { (error) in
+            complete(false, nil)
+        }
+    }
+    
+    //echo content | base64 -D > fileName
+    private func saveFileWithContent(_ content: String?, filePath:String) -> Promise<String> {
+        
+        let p = Promise<String> { resolver in
+            
+            guard content != nil else {
+                
+                let def_error = NSError.init(domain: "failed download certificate", code: 0, userInfo: nil)
+                resolver.reject(def_error)
+                return
+            }
+            guard let data = NSData.init(base64Encoded: content!, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters) else {
+                let def_error = NSError.init(domain: "failed download certificate", code: 0, userInfo: nil)
+                resolver.reject(def_error)
+                return
+            }
+            data.write(to: URL.init(fileURLWithPath: filePath), atomically: false)
+            
+            //导入证书 security add-certificates
+            if filePath.hasSuffix(".cer") {
+                
+                let _ = Process().execute("/usr/bin/security", workingDirectory: nil, arguments: ["add-certificates",filePath])
+                resolver.fulfill(filePath)
+                
+            } else {
+                
+                let fileManager = FileManager()
+                if let libraryDirectory = fileManager.urls(for: .libraryDirectory, in: .userDomainMask).first {
+                    let provisioningProfilesPath = libraryDirectory.path.stringByAppendingPathComponent("MobileDevice/Provisioning Profiles") as NSString
+                    let destinationPath = provisioningProfilesPath.appendingPathComponent(filePath.lastPathComponent)
+                    if fileManager.fileExists(atPath: destinationPath) {
+                        try? fileManager.removeItem(atPath: destinationPath)
+                    }
+                    do {
+                        try fileManager.copyItem(atPath: filePath, toPath: destinationPath)
+                    } catch {
+                        
+                    }
+                }
+                
+                resolver.fulfill(filePath)
+            }
+        }
+        
+        return p
+    }
+    
+    func choosePath(fileType: String, can_directory: Bool, can_file: Bool, message: String) -> Promise<String> {
+        
+        let p = Promise<String> { resolver in
+            
+            let openDialog = NSOpenPanel()
+            openDialog.canChooseFiles = can_file
+            openDialog.canChooseDirectories = can_directory
+            openDialog.allowsMultipleSelection = false
+            openDialog.allowsOtherFileTypes = false
+            openDialog.allowedFileTypes = [fileType] //["certSigningRequest"]
+            openDialog.message = message//"Choose .certSigningRequest(Only need once，form Keychain-assistant）"
+            openDialog.title = "Please Choose"
+            openDialog.runModal()
+            if let filename = openDialog.urls.first {
+                resolver.fulfill(filename.path)
+            } else {
+                let error = NSError.init(domain: "Choose failed", code: 0, userInfo: nil)
+                resolver.reject(error)
+            }
+            
         }
         
         return p

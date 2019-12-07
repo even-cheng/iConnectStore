@@ -10,25 +10,25 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" customClass="EditProfileView" customModule="iConnectStore" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="969" height="487"/>
+            <rect key="frame" x="0.0" y="0.0" width="969" height="514"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ucl-vc-9wH">
-                    <rect key="frame" x="28" y="348" width="105" height="17"/>
+                    <rect key="frame" x="28" y="355" width="105" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Select BundleID:" id="lxt-qP-wpf">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="NMW-KY-yV0">
-                    <rect key="frame" x="30" y="303" width="909" height="35"/>
+                    <rect key="frame" x="30" y="310" width="909" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="bLE-TK-ftq"/>
                     </constraints>
                     <popUpButtonCell key="cell" type="bevel" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="Gnb-cW-n2m" id="5a3-YJ-UUs">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <menu key="menu" id="e3h-hs-Vc1">
                             <items>
                                 <menuItem title="Item 1" state="on" id="Gnb-cW-n2m"/>
@@ -40,40 +40,40 @@
                     <color key="contentTintColor" white="0.28000000000000003" alpha="1" colorSpace="calibratedWhite"/>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xte-xu-Aqc">
-                    <rect key="frame" x="28" y="440" width="78" height="17"/>
+                    <rect key="frame" x="28" y="447" width="78" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Input Name:" id="8dB-0Y-Hcc">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MCG-d7-GSb">
-                    <rect key="frame" x="30" y="395" width="909" height="35"/>
+                    <rect key="frame" x="30" y="402" width="909" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="6Rp-3o-QLr"/>
                     </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" bezelStyle="round" id="Vyi-pT-hPh">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="935-Ob-ccf">
-                    <rect key="frame" x="28" y="256" width="117" height="17"/>
+                    <rect key="frame" x="28" y="263" width="117" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Select ProfileType:" id="sN1-aF-4Tb">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="RZP-P3-kbT">
-                    <rect key="frame" x="30" y="211" width="909" height="35"/>
+                    <rect key="frame" x="30" y="218" width="909" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="Zt0-fo-6Ne"/>
                     </constraints>
                     <popUpButtonCell key="cell" type="bevel" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="8Wb-u4-zAh" id="m9O-sJ-UUj">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <menu key="menu" id="0Jr-Gt-iaA">
                             <items>
                                 <menuItem title="Item 1" state="on" id="8Wb-u4-zAh"/>
@@ -85,61 +85,61 @@
                     <color key="contentTintColor" white="0.28000000000000003" alpha="1" colorSpace="calibratedWhite"/>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ra0-Pl-YF5">
-                    <rect key="frame" x="28" y="164" width="98" height="17"/>
+                    <rect key="frame" x="28" y="171" width="98" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Select Devices:" id="NxM-wv-OaW">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lGh-Bz-fzZ">
-                    <rect key="frame" x="30" y="119" width="809" height="35"/>
+                    <rect key="frame" x="30" y="126" width="809" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="qDj-Kk-El4"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" bezelStyle="round" id="TWd-d3-JWr">
-                        <font key="font" metaFont="label" size="13"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" bezelStyle="round" id="TWd-d3-JWr">
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Us2-9d-6sr">
-                    <rect key="frame" x="28" y="72" width="120" height="17"/>
+                    <rect key="frame" x="28" y="79" width="120" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Select Certificates:" id="2VM-F5-rgQ">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7nA-ih-xeL">
-                    <rect key="frame" x="30" y="27" width="809" height="35"/>
+                    <rect key="frame" x="30" y="34" width="809" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="wsy-l3-JV7"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" bezelStyle="round" id="deo-2Q-dVR">
-                        <font key="font" metaFont="label" size="13"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" bezelStyle="round" id="deo-2Q-dVR">
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S6C-p8-7Ki">
-                    <rect key="frame" x="857" y="116" width="84" height="40"/>
+                    <rect key="frame" x="857" y="123" width="84" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="SaE-Kv-r2f"/>
                     </constraints>
                     <buttonCell key="cell" type="bevel" title="Choose" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9nl-X6-eLV">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5N6-Rt-6lS">
-                    <rect key="frame" x="857" y="24" width="84" height="40"/>
+                    <rect key="frame" x="857" y="31" width="84" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="d9f-VG-3BK"/>
                     </constraints>
                     <buttonCell key="cell" type="bevel" title="Choose" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vYy-ml-qp5">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
             </subviews>
@@ -155,7 +155,7 @@
                 <constraint firstAttribute="trailing" secondItem="MCG-d7-GSb" secondAttribute="trailing" constant="30" id="JgD-yM-0wi"/>
                 <constraint firstItem="5N6-Rt-6lS" firstAttribute="height" secondItem="7nA-ih-xeL" secondAttribute="height" id="Nzv-jg-28W"/>
                 <constraint firstItem="S6C-p8-7Ki" firstAttribute="height" secondItem="lGh-Bz-fzZ" secondAttribute="height" id="O0R-38-ufM"/>
-                <constraint firstItem="xte-xu-Aqc" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="30" id="O4M-fe-d2F"/>
+                <constraint firstItem="xte-xu-Aqc" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="50" id="O4M-fe-d2F"/>
                 <constraint firstItem="7nA-ih-xeL" firstAttribute="leading" secondItem="MCG-d7-GSb" secondAttribute="leading" id="OER-lq-8MG"/>
                 <constraint firstItem="5N6-Rt-6lS" firstAttribute="leading" secondItem="S6C-p8-7Ki" secondAttribute="leading" id="S3X-iU-oYX"/>
                 <constraint firstItem="5N6-Rt-6lS" firstAttribute="trailing" secondItem="S6C-p8-7Ki" secondAttribute="trailing" id="UBv-Xd-nFz"/>
@@ -184,7 +184,7 @@
                 <outlet property="selectDevicesField" destination="lGh-Bz-fzZ" id="Rnq-ss-efk"/>
                 <outlet property="selectProfileTypeButton" destination="RZP-P3-kbT" id="4DC-C4-Cez"/>
             </connections>
-            <point key="canvasLocation" x="47.5" y="261.5"/>
+            <point key="canvasLocation" x="47.5" y="275"/>
         </customView>
     </objects>
 </document>

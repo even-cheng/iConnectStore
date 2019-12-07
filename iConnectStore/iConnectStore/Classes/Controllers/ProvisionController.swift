@@ -73,6 +73,10 @@ class ProvisionController: NSViewController {
         setupButton(btn: devicesButton)
         setupButton(btn: bundlesButton)
         
+        self.editContentView.submitSuccessAction = {
+            self.reloadDatasAction(self.reloadButton)
+        }
+        
         getAllDatas()
     }
     
@@ -121,7 +125,11 @@ class ProvisionController: NSViewController {
         switch selectType {
         case .certificate:
             let certificate = self.certificates![contentTableView.selectedRow]
-            self.alert(certificate)
+            ProfileDataManager().downloadCertificate(certificate: certificate, save_name: "iconnect-store") { (res, save_path) -> (Void) in
+                if res {
+                    print("save success: \(save_path ?? "")")
+                }
+            }
             
         case .bundleId:
             break
@@ -129,7 +137,11 @@ class ProvisionController: NSViewController {
             break
         case .profile:
             let profile = self.profiles![contentTableView.selectedRow]
-            self.alert(profile)
+            ProfileDataManager().downloadProfile(profile: profile, save_name: "iconnect-store") { (res, save_path) -> (Void) in
+                if res {
+                    print("save success: \(save_path ?? "")")
+                }
+            }
         }
     }
     
@@ -205,8 +217,11 @@ class ProvisionController: NSViewController {
     @objc private func tableViewItemAdd() {
         
         let selectType: FileType = FileType(rawValue: lastSelectLeftButton!.tag)!
-        self.editContentView.fileType = selectType
         self.editContentView.isHidden = false
+        self.editContentView.certificates = self.certificates
+        self.editContentView.devices = self.devices
+        self.editContentView.bundleIDs = self.bundleIDs
+        self.editContentView.fileType = selectType
     }
     
     @objc private func tableViewItemEdit() {
@@ -224,8 +239,6 @@ class ProvisionController: NSViewController {
             let device = self.devices![contentTableView.selectedRow]
             self.editContentView.edit_device = device
         case .profile:
-            let profile = self.profiles![contentTableView.selectedRow]
-            self.editContentView.edit_profile = profile
             self.editContentView.certificates = self.certificates
             self.editContentView.devices = self.devices
             self.editContentView.bundleIDs = self.bundleIDs
@@ -653,7 +666,7 @@ extension ProvisionController: ContextMenu{
         case .device:
             addItemToMenu(itemTypes: [.check, .edit, .add])
         case .profile:
-            addItemToMenu(itemTypes: [.check, .edit, .add, .download, .delete])
+            addItemToMenu(itemTypes: [.check, .add, .download, .delete])
         }
         return self.editMenu
     }

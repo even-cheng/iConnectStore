@@ -391,7 +391,7 @@
                                             <tableColumns>
                                                 <tableColumn width="156" minWidth="20" maxWidth="1000" id="MiY-pE-KuJ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="menu" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -430,7 +430,7 @@
                                                 </tableColumn>
                                                 <tableColumn width="158" minWidth="20" maxWidth="1000" id="an8-l4-7xZ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="menu" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -464,7 +464,7 @@
                                                 </tableColumn>
                                                 <tableColumn width="160" minWidth="20" maxWidth="1000" id="Fl4-cu-6KN">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="menu" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -498,7 +498,7 @@
                                                 </tableColumn>
                                                 <tableColumn width="160" minWidth="20" maxWidth="1000" id="XU7-Ki-yQI">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="menu" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -532,7 +532,7 @@
                                                 </tableColumn>
                                                 <tableColumn width="160" minWidth="20" maxWidth="1000" id="YJU-wA-SMa">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="menu" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -604,8 +604,8 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EYS-Bh-pOA">
-                                        <rect key="frame" x="352" y="7" width="90" height="34"/>
-                                        <buttonCell key="cell" type="bevel" title=" Done" bezelStyle="regularSquare" image="post_done" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WjC-Sw-l2v">
+                                        <rect key="frame" x="344" y="7" width="107" height="34"/>
+                                        <buttonCell key="cell" type="bevel" title=" Submit" bezelStyle="regularSquare" image="post_done" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WjC-Sw-l2v">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="18"/>
                                         </buttonCell>
@@ -614,12 +614,29 @@
                                             <action selector="DoneAction:" target="xwI-zD-3PP" id="yq5-mZ-N6u"/>
                                         </connections>
                                     </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5uf-4k-6eJ">
+                                        <rect key="frame" x="1" y="507" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Hza-28-iKR"/>
+                                            <constraint firstAttribute="width" constant="40" id="KmZ-ii-Af1"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="back_icon" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="zSZ-TZ-Gl1">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="systemBold" size="15"/>
+                                        </buttonCell>
+                                        <color key="contentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="CloseAction:" target="xwI-zD-3PP" id="6cX-NS-rUw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="5uf-4k-6eJ" firstAttribute="leading" secondItem="xwI-zD-3PP" secondAttribute="leading" constant="1" id="0VT-Pi-Srb"/>
                                     <constraint firstItem="Rjv-Z8-YGd" firstAttribute="centerX" secondItem="xwI-zD-3PP" secondAttribute="centerX" id="Hkm-GA-eIc"/>
                                     <constraint firstItem="Rjv-Z8-YGd" firstAttribute="top" secondItem="xwI-zD-3PP" secondAttribute="top" constant="10" id="QRC-D3-oz8"/>
                                     <constraint firstItem="EYS-Bh-pOA" firstAttribute="centerX" secondItem="xwI-zD-3PP" secondAttribute="centerX" id="eJQ-Ca-8Ei"/>
                                     <constraint firstAttribute="bottom" secondItem="EYS-Bh-pOA" secondAttribute="bottom" constant="10" id="h4e-lm-L78"/>
+                                    <constraint firstItem="Rjv-Z8-YGd" firstAttribute="centerY" secondItem="5uf-4k-6eJ" secondAttribute="centerY" id="yaK-JZ-9jp"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="doneButton" destination="EYS-Bh-pOA" id="2uz-yV-7fI"/>
@@ -900,6 +917,7 @@
     <resources>
         <image name="add" width="50" height="50"/>
         <image name="avatar" width="100" height="100"/>
+        <image name="back_icon" width="22.5" height="22.5"/>
         <image name="data" width="25" height="25"/>
         <image name="post_done" width="20" height="20"/>
         <image name="provision" width="25" height="25"/>

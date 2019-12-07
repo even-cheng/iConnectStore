@@ -28,12 +28,12 @@ extension APIEndpoint where T == BundleIdResponse {
     /// modify a Bundle Id
     ///
     /// - Parameters:
-    public static func modify(bundle_id: String, new_bundle_id: String, new_name: String) -> APIEndpoint {
+    public static func modifyBundleID(id: String, new_name: String) -> APIEndpoint {
         
         let request = BundleIdUpdateRequest(
-            identifier: new_bundle_id, name: new_name)
+            identifier: id, name: new_name)
         return APIEndpoint(
-            path: "bundleIds/\(bundle_id)",
+            path: "bundleIds/\(id)",
             method: .patch,
             parameters: nil,
             body: try? JSONEncoder().encode(request))

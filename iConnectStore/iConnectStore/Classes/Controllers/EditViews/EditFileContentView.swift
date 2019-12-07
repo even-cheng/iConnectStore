@@ -18,7 +18,9 @@ class EditFileContentView: NSView {
             self.addViews()
         }
     }
-    open var edit_profile: Profile?
+
+    open var submitSuccessAction: (()->(Void))?
+    
     open var edit_bundleID: BundleId?
     open var edit_device: Device?
     
@@ -128,16 +130,12 @@ class EditFileContentView: NSView {
                     maker.edges.equalTo(self)
                 }
             }
-            if self.edit_profile == nil {
-                self.titleField.stringValue = "Add Profile"
-                self.editProfileView.clear()
-            } else {
-                self.titleField.stringValue = "Edit Profile"
-                self.editProfileView.profile = self.edit_profile
-                self.editProfileView.devices = self.devices
-                self.editProfileView.certificates = self.certificates
-                self.editProfileView.bundleIDs = self.bundleIDs
-            }
+            self.editProfileView.devices = self.devices
+            self.editProfileView.bundleIDs = self.bundleIDs
+            self.editProfileView.certificates = self.certificates
+            self.titleField.stringValue = "Add Profile"
+            self.editProfileView.clear()
+            
         case .none: break
         }
         
@@ -147,21 +145,27 @@ class EditFileContentView: NSView {
         self.editProfileView.isHidden = (fileType != .profile)
     }
     
+    @IBAction func CloseAction(_ sender: Any?) {
+        self.isHidden = true
+        self.edit_bundleID = nil
+        self.edit_device = nil
+        self.bundleIDs = nil
+        self.devices = nil
+        self.certificates = nil
+        self.editCertificateView.clear()
+        self.editBundleIDView.clear()
+        self.editDeviceView.clear()
+        self.editProfileView.clear()
+    }
+    
     @IBAction func DoneAction(_ sender: NSButton) {
         
         self.upldateOrCreat { (res) -> (Void) in
             if res == true {
-                self.isHidden = true
-                self.edit_bundleID = nil
-                self.edit_device = nil
-                self.edit_profile = nil
-                self.bundleIDs = nil
-                self.devices = nil
-                self.certificates = nil
-                self.editCertificateView.clear()
-                self.editBundleIDView.clear()
-                self.editDeviceView.clear()
-                self.editProfileView.clear()
+                self.CloseAction(sender)
+                if self.submitSuccessAction != nil {
+                    self.submitSuccessAction!()
+                }
             }
         }
     }
@@ -171,7 +175,8 @@ class EditFileContentView: NSView {
         switch fileType {
         case .certificate?:
             //add cer
-            guard let CSR_path = self.editCertificateView.CSRFile_path else {
+            let CSR_path = self.editCertificateView.ChooseCSRField.stringValue
+            guard CSR_path.count > 0 else {
                 return
             }
             guard let selectTitle = self.editCertificateView.SelectCerTypeButton.selectedItem?.title else {
@@ -186,14 +191,14 @@ class EditFileContentView: NSView {
             
         case .bundleId?:
             
+            let bundle_id = self.editBundleIDView.bundleIDField.stringValue
+            let name = self.editBundleIDView.nameField.stringValue
+            guard let selectPlatform = self.editBundleIDView.platformButton.selectedItem?.title else {
+                return
+            }
+            guard bundle_id.count*name.count > 0 else {return}
             if self.edit_bundleID == nil {
                 //add bundleID
-                let bundle_id = self.editBundleIDView.bundleIDField.stringValue
-                let name = self.editBundleIDView.nameField.stringValue
-                guard let selectPlatform = self.editBundleIDView.platformButton.selectedItem?.title else {
-                    return
-                }
-                guard bundle_id.count*name.count > 0 else {return}
                 ProfileDataManager().creatBundleId(id: bundle_id, name: name, platform: Platform(rawValue: selectPlatform)!).done { (bundleID) in
                     complete(true)
                 }.catch { (Error) in
@@ -202,18 +207,27 @@ class EditFileContentView: NSView {
                 }
 
             } else {
+                guard let bundleID = self.edit_bundleID else {
+                    return
+                }
                 //update bundleID
+                ProfileDataManager().updateBundleId(id: bundleID.id, new_name: name).done { (bundleID) in
+                    complete(true)
+                }.catch { (Error) in
+                    print(Error)
+                    complete(false)
+                }
             }
             
         case .device?:
+            let udids = self.editDeviceView.UDIDField.stringValue.components(separatedBy: "&")
+            let names = self.editDeviceView.nameField.stringValue.components(separatedBy: "&")
+            guard let selectPlatform = self.editDeviceView.platformButton.selectedItem?.title else {
+                return
+            }
+            guard udids.count == names.count && udids.count != 0 else {return}
             if self.edit_device == nil {
                 // Add Device
-                let udids = self.editDeviceView.UDIDField.stringValue.components(separatedBy: "&")
-                let names = self.editDeviceView.nameField.stringValue.components(separatedBy: "&")
-                guard let selectPlatform = self.editDeviceView.platformButton.selectedItem?.title else {
-                    return
-                }
-                guard udids.count == names.count && udids.count != 0 else {return}
                 ProfileDataManager().registerdNewDevices(names:names ,udids: udids, platform: Platform(rawValue: selectPlatform)!).done { (devices) in
                     complete(true)
                 }.catch { (Error) in
@@ -223,45 +237,61 @@ class EditFileContentView: NSView {
                 
             } else {
                 // update Device
-                
-            }
-            
-        case .profile?:
-            if self.edit_profile == nil {
-                // Add Profile
-                let name = self.editProfileView.nameField.stringValue
-                guard let selectBundleID = self.editProfileView.selectBundleButton.selectedItem?.title else {
+                guard let device = self.edit_device else {
                     return
                 }
-                guard let selectProfileType = self.editProfileView.selectProfileTypeButton.selectedItem?.title else {
-                    return
-                }
-                guard let selectDevices = self.editProfileView.devices else {
-                    return
-                }
-                guard let selectCertificates = self.editProfileView.certificates else {
-                    return
-                }
-                guard selectDevices.count*selectCertificates.count != 0 else {return}
-                var device_ids: [String] = []
-                for device in selectDevices {
-                    device_ids.append(device.id)
-                }
-                var certificate_ids: [String] = []
-                for cer in selectCertificates {
-                    certificate_ids.append(cer.id)
-                }
-                ProfileDataManager().creatProvisionFile(name: name, bundleId: selectBundleID, profileType:selectProfileType, certificates: certificate_ids, devices: device_ids).done { (devices) in
+                //update bundleID
+                ProfileDataManager().updateDevice(id: device.id, name: names.first!, status: .enable).done { (device) in
                     complete(true)
                 }.catch { (Error) in
                     print(Error)
                     complete(false)
                 }
-
-            } else {
-                // update Profile
-               
             }
+            
+        case .profile?:
+
+            // Add Profile
+            let name = self.editProfileView.nameField.stringValue
+            guard (self.editProfileView.selectBundleButton.selectedItem?.title) != nil else {
+                return
+            }
+            guard let selectProfileType = self.editProfileView.selectProfileTypeButton.selectedItem?.title else {
+                return
+            }
+            guard let selectDevices = self.editProfileView.devices else {
+                return
+            }
+            guard let selectCertificates = self.editProfileView.certificates else {
+                return
+            }
+            guard selectDevices.count*selectCertificates.count != 0 else {return}
+            var device_ids: [String] = []
+            for device in selectDevices {
+                if selectProfileType.hasPrefix("IOS") && device.attributes?.platform == .ios{
+                    device_ids.append(device.id)
+                } else if selectProfileType.hasPrefix("MAC") && device.attributes?.platform == .macOs{
+                    device_ids.append(device.id)
+                } else if selectProfileType.hasPrefix("TC") && device.attributes?.platform == .tvOs{
+                    device_ids.append(device.id)
+                }
+            }
+            var certificate_ids: [String] = []
+            for cer in selectCertificates {
+                if selectProfileType.hasPrefix("IOS") && cer.attributes!.certificateType!.rawValue.hasPrefix("IOS"){
+                    certificate_ids.append(cer.id)
+                } else if selectProfileType.hasPrefix("MAC") && cer.attributes!.certificateType!.rawValue.hasPrefix("MAC"){
+                    certificate_ids.append(cer.id)
+                }
+            }
+            let bundle_id = self.bundleIDs![self.editProfileView.selectBundleButton.indexOfSelectedItem].id
+            ProfileDataManager().creatProvisionFile(name: name, bundleId: bundle_id, profileType:selectProfileType, certificates: certificate_ids, devices: device_ids).done { (devices) in
+                complete(true)
+            }.catch { (Error) in
+                print(Error)
+                complete(false)
+            }
+
         case .none: break
         }
     }

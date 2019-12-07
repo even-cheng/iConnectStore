@@ -14,7 +14,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nIC-4l-E39">
-                    <rect key="frame" x="28" y="185" width="101" height="17"/>
+                    <rect key="frame" x="28" y="165" width="101" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Select Platform:" id="tqa-5C-9sj">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -22,7 +22,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wZU-J1-UPa">
-                    <rect key="frame" x="28" y="277" width="74" height="17"/>
+                    <rect key="frame" x="28" y="257" width="74" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Input UDID:" id="G2m-Kj-NxW">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -30,7 +30,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zEa-Ib-GfF">
-                    <rect key="frame" x="30" y="232" width="839" height="35"/>
+                    <rect key="frame" x="30" y="212" width="839" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="DxL-l7-FXw"/>
                     </constraints>
@@ -41,7 +41,7 @@
                     </textFieldCell>
                 </textField>
                 <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="eND-lC-FXV">
-                    <rect key="frame" x="30" y="140" width="839" height="35"/>
+                    <rect key="frame" x="30" y="120" width="839" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="tUJ-OR-Mpd"/>
                     </constraints>
@@ -59,7 +59,7 @@
                     <color key="contentTintColor" white="0.28000000000000003" alpha="1" colorSpace="calibratedWhite"/>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lMg-3A-3BL">
-                    <rect key="frame" x="28" y="369" width="78" height="17"/>
+                    <rect key="frame" x="28" y="349" width="78" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Input Name:" id="3e2-9D-3hp">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,7 +67,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p84-cD-uXe">
-                    <rect key="frame" x="30" y="324" width="839" height="35"/>
+                    <rect key="frame" x="30" y="304" width="839" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="gEK-XY-fy1"/>
                     </constraints>
@@ -89,7 +89,7 @@
                 <constraint firstItem="eND-lC-FXV" firstAttribute="leading" secondItem="wZU-J1-UPa" secondAttribute="leading" id="UMP-O5-QnF"/>
                 <constraint firstItem="zEa-Ib-GfF" firstAttribute="leading" secondItem="wZU-J1-UPa" secondAttribute="leading" id="X2W-fB-qkt"/>
                 <constraint firstItem="eND-lC-FXV" firstAttribute="trailing" secondItem="zEa-Ib-GfF" secondAttribute="trailing" id="XHv-lt-Vhn"/>
-                <constraint firstItem="lMg-3A-3BL" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="30" id="bXA-e2-PUe"/>
+                <constraint firstItem="lMg-3A-3BL" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="50" id="bXA-e2-PUe"/>
                 <constraint firstAttribute="trailing" secondItem="p84-cD-uXe" secondAttribute="trailing" constant="30" id="eKy-eC-Cwx"/>
                 <constraint firstItem="lMg-3A-3BL" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="30" id="qTT-SW-G9V"/>
                 <constraint firstItem="wZU-J1-UPa" firstAttribute="leading" secondItem="p84-cD-uXe" secondAttribute="leading" id="wZT-A6-kDw"/>

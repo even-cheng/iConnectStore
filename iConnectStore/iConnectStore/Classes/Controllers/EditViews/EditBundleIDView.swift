@@ -19,12 +19,14 @@ class EditBundleIDView: NSView {
             nameField.stringValue = bundleID?.attributes?.name ?? ""
             bundleIDField.stringValue = bundleID?.attributes?.identifier ?? ""
             platformButton.isEnabled = false
+            bundleIDField.isEnabled = false
         }
     }
     
     public func clear() {
         
         platformButton.isEnabled = true
+        bundleIDField.isEnabled = true
         self.nameField.stringValue = ""
         self.bundleIDField.stringValue = ""
     }
