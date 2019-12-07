@@ -328,13 +328,13 @@
 		148EE3262397953700B07C92 /* ProfileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EE3252397953700B07C92 /* ProfileDataManager.swift */; };
 		14B033A9238FAF170038083D /* TestFlightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033A8238FAF170038083D /* TestFlightController.swift */; };
 		14B033AB238FAF260038083D /* UserRoleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033AA238FAF260038083D /* UserRoleController.swift */; };
-		14B033AD238FAF370038083D /* ProvisionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033AC238FAF370038083D /* ProvisionController.swift */; };
 		14B033AF238FAF450038083D /* ReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033AE238FAF450038083D /* ReportController.swift */; };
 		14B033B1238FAF4D0038083D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033B0238FAF4D0038083D /* DataController.swift */; };
 		14B033B3238FAF560038083D /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033B2238FAF560038083D /* SettingController.swift */; };
 		14CDE79223990683000C5E60 /* EditFileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CDE79123990683000C5E60 /* EditFileContentView.swift */; };
 		14DF7BEF239B3DC00012D1C7 /* NSTask-execute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF7BEE239B3DC00012D1C7 /* NSTask-execute.swift */; };
 		14DF7BF1239B3DDA0012D1C7 /* StringByAppendingPathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF7BF0239B3DDA0012D1C7 /* StringByAppendingPathComponent.swift */; };
+		14DF7BF5239B56900012D1C7 /* ProvisionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033AC238FAF370038083D /* ProvisionController.swift */; };
 		9DAA1848A10F1ED38A6B3CFD /* Pods_iConnectStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD886EC27C6C35177CEFE238 /* Pods_iConnectStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -1366,7 +1366,7 @@
 			isa = PBXGroup;
 			children = (
 				14DF7BF2239B3DE90012D1C7 /* Tools */,
-				14B033A7238FAF070038083D /* Controllers */,
+				14B033A7238FAF070038083D /* Module */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1379,19 +1379,12 @@
 			path = Datas;
 			sourceTree = "<group>";
 		};
-		14B033A7238FAF070038083D /* Controllers */ = {
+		14B033A7238FAF070038083D /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				1481BF882399E8750054B538 /* EditViews */,
-				148EE3242397951F00B07C92 /* Datas */,
-				14B033A8238FAF170038083D /* TestFlightController.swift */,
-				14B033AA238FAF260038083D /* UserRoleController.swift */,
-				14B033AC238FAF370038083D /* ProvisionController.swift */,
-				14B033AE238FAF450038083D /* ReportController.swift */,
-				14B033B0238FAF4D0038083D /* DataController.swift */,
-				14B033B2238FAF560038083D /* SettingController.swift */,
+				14DF7BF3239B534C0012D1C7 /* Profile */,
 			);
-			path = Controllers;
+			path = Module;
 			sourceTree = "<group>";
 		};
 		14DF7BF2239B3DE90012D1C7 /* Tools */ = {
@@ -1401,6 +1394,29 @@
 				14DF7BF0239B3DDA0012D1C7 /* StringByAppendingPathComponent.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		14DF7BF3239B534C0012D1C7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				14DF7BF4239B535D0012D1C7 /* Controllers */,
+				1481BF882399E8750054B538 /* EditViews */,
+				148EE3242397951F00B07C92 /* Datas */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		14DF7BF4239B535D0012D1C7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				14B033A8238FAF170038083D /* TestFlightController.swift */,
+				14B033AA238FAF260038083D /* UserRoleController.swift */,
+				14B033AC238FAF370038083D /* ProvisionController.swift */,
+				14B033AE238FAF450038083D /* ReportController.swift */,
+				14B033B0238FAF4D0038083D /* DataController.swift */,
+				14B033B2238FAF560038083D /* SettingController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		B76588B2C715042036F0B4E8 /* Pods */ = {
@@ -1603,6 +1619,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14DF7BF5239B56900012D1C7 /* ProvisionController.swift in Sources */,
 				148768A5238E1ECC00396E9C /* ListBuildsAssignedToBetaTester.swift in Sources */,
 				148768C6238E1ECD00396E9C /* ReadAppEncryptionDeclarationOfBuild.swift in Sources */,
 				14876929238E1ECD00396E9C /* BundleIdCreateRequest.swift in Sources */,
@@ -1888,7 +1905,6 @@
 				14876958238E1ECD00396E9C /* BuildResponse.swift in Sources */,
 				1487693F238E1ECD00396E9C /* ReplaceListOfVisibleAppsForUser.swift in Sources */,
 				148768F4238E1ECD00396E9C /* ReadAppInformationOfPrereleaseVersion.swift in Sources */,
-				14B033AD238FAF370038083D /* ProvisionController.swift in Sources */,
 				14876973238E1ECD00396E9C /* BuildsResponse.swift in Sources */,
 				148768A4238E1ECC00396E9C /* AddBetaTesterToBetaGroups.swift in Sources */,
 				14876932238E1ECD00396E9C /* ProfileResponse.swift in Sources */,
