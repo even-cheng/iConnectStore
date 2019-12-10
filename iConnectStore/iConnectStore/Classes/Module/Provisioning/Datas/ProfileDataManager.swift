@@ -9,27 +9,8 @@
 import Foundation
 import PromiseKit
 
-struct ProfileDataManager {
+class ProfileDataManager: ConnectDataManager {
     
-    private var configuration: APIConfiguration?
-    private var provider: APIProvider?
-    
-    init() {
-        let issuer = UserDefaults.standard.value(forKey: "issuerId"), key = UserDefaults.standard.value(forKey: "privateKey"),keyId = UserDefaults.standard.value(forKey: "privateKeyId")
-        if issuer == nil || key == nil || keyId == nil{
-            
-            let alert = NSAlert.init()
-            alert.messageText = "Error!"
-            alert.informativeText = "login failed, please goto Setting to input your keys"
-            alert.addButton(withTitle: "OK")
-            alert.alertStyle = .warning
-            alert.beginSheetModal(for: NSApplication.shared.keyWindow!, completionHandler: nil)
-            return
-        }
-        configuration = APIConfiguration(issuerID: issuer as! String, privateKeyID: keyId as! String, privateKey: key as! String)
-        provider = APIProvider(configuration: configuration!)
-    }
-
     func listRegisterdDevices() -> Promise<[Device]> {
         
         let p = Promise<[Device]> { resolver in

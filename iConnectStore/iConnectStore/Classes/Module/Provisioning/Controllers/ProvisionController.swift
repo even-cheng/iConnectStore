@@ -9,7 +9,7 @@
 import Cocoa
 import PromiseKit
 
-public enum FileType: Int {
+public enum ProvisionFileType: Int {
     case certificate = 0
     case bundleId    = 1
     case device      = 2
@@ -121,7 +121,7 @@ class ProvisionController: NSViewController {
     @objc private func tableViewItemDownload() {
         guard contentTableView.selectedRow >= 0 else {return}
 
-        let selectType: FileType = FileType(rawValue: lastSelectLeftButton!.tag)!
+        let selectType: ProvisionFileType = ProvisionFileType(rawValue: lastSelectLeftButton!.tag)!
         switch selectType {
         case .certificate:
             let certificate = self.certificates![contentTableView.selectedRow]
@@ -158,7 +158,7 @@ class ProvisionController: NSViewController {
         let response = alert.runModal()
         if response == NSApplication.ModalResponse.alertSecondButtonReturn {
             
-            let selectType: FileType = FileType(rawValue: lastSelectLeftButton!.tag)!
+            let selectType: ProvisionFileType = ProvisionFileType(rawValue: lastSelectLeftButton!.tag)!
             switch selectType {
             case .certificate:
                 let certificate = self.certificates![contentTableView.selectedRow]
@@ -194,7 +194,7 @@ class ProvisionController: NSViewController {
         
         guard contentTableView.selectedRow >= 0 else {return}
 
-        let selectType: FileType = FileType(rawValue: lastSelectLeftButton!.tag)!
+        let selectType: ProvisionFileType = ProvisionFileType(rawValue: lastSelectLeftButton!.tag)!
         switch selectType {
         case .certificate:
             let certificate = self.certificates![contentTableView.selectedRow]
@@ -216,7 +216,7 @@ class ProvisionController: NSViewController {
     
     @objc private func tableViewItemAdd() {
         
-        let selectType: FileType = FileType(rawValue: lastSelectLeftButton!.tag)!
+        let selectType: ProvisionFileType = ProvisionFileType(rawValue: lastSelectLeftButton!.tag)!
         self.editContentView.isHidden = false
         self.editContentView.certificates = self.certificates
         self.editContentView.devices = self.devices
@@ -228,7 +228,7 @@ class ProvisionController: NSViewController {
         
         guard contentTableView.selectedRow >= 0 else {return}
         
-        let selectType: FileType = FileType(rawValue: lastSelectLeftButton!.tag)!
+        let selectType: ProvisionFileType = ProvisionFileType(rawValue: lastSelectLeftButton!.tag)!
         switch selectType {
         case .certificate:
             break
@@ -287,7 +287,7 @@ class ProvisionController: NSViewController {
         let columnCount = contentTableView.tableColumns.count
         var need_columnCount: Int = 0
         
-        let selectType: FileType = FileType(rawValue: lastSelectLeftButton!.tag)!
+        let selectType: ProvisionFileType = ProvisionFileType(rawValue: lastSelectLeftButton!.tag)!
         switch selectType {
         case .certificate:
             headerTitles = ["DisplayName","Type","Platform","Name","Expiration"]
@@ -359,7 +359,7 @@ class ProvisionController: NSViewController {
     
     @IBAction func reloadDatasAction(_ sender: NSButton) {
         
-        let selectType: FileType = FileType(rawValue: lastSelectLeftButton!.tag)!
+        let selectType: ProvisionFileType = ProvisionFileType(rawValue: lastSelectLeftButton!.tag)!
         switch selectType {
         case .certificate:
             getAllCerficates()
@@ -488,7 +488,7 @@ extension ProvisionController: NSTableViewDelegate {
         }
         
         var text: String = ""
-        let selectType: FileType = FileType(rawValue: lastSelectLeftButton!.tag)!
+        let selectType: ProvisionFileType = ProvisionFileType(rawValue: lastSelectLeftButton!.tag)!
         switch selectType {
         case .certificate:
             if let certificate = self.certificates?[row] {
@@ -566,7 +566,7 @@ extension ProvisionController: NSTableViewDelegate {
         alert.alertStyle = .informational
         
         var infomation: String = ""
-        let selectType: FileType = FileType(rawValue: lastSelectLeftButton!.tag)!
+        let selectType: ProvisionFileType = ProvisionFileType(rawValue: lastSelectLeftButton!.tag)!
         switch selectType {
         case .certificate:
             let certificate = self.certificates![contentTableView.selectedRow]
@@ -634,7 +634,7 @@ extension ProvisionController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
       
-        let selectType: FileType = FileType(rawValue: lastSelectLeftButton!.tag)!
+        let selectType: ProvisionFileType = ProvisionFileType(rawValue: lastSelectLeftButton!.tag)!
         switch selectType {
         case .certificate:
             return self.certificates?.count ?? 0
@@ -657,7 +657,7 @@ extension ProvisionController: ContextMenu{
     
     @objc func tableView(_ tableView: NSTableView, menuForRows rows:IndexSet)->NSMenu?{
 
-        let selectType: FileType = FileType(rawValue: lastSelectLeftButton!.tag)!
+        let selectType: ProvisionFileType = ProvisionFileType(rawValue: lastSelectLeftButton!.tag)!
         self.editMenu.removeAllItems()
         switch selectType {
         case .certificate:

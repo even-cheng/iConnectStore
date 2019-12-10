@@ -32,7 +32,7 @@ extension Process {
         pipeFile.closeFile();
         self.terminate();
         
-        let output = NSString(data: data as Data, encoding: String.Encoding.utf8.rawValue) as! String
+        let output = NSString(data: data as Data, encoding: String.Encoding.utf8.rawValue)! as String
         
         return AppSignerTaskOutput(status: self.terminationStatus, output: output)
         

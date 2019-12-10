@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		147F1516239DFA7F007646D5 /* UserRoleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F1515239DFA7F007646D5 /* UserRoleData.swift */; };
+		147F1518239DFCB2007646D5 /* ConnectDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F1517239DFCB2007646D5 /* ConnectDataManager.swift */; };
+		147F151B239E3652007646D5 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F151A239E3652007646D5 /* EditUserView.swift */; };
+		147F151D239E3661007646D5 /* EditUserInvitationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F151C239E3661007646D5 /* EditUserInvitationView.swift */; };
+		147F151F239E36B7007646D5 /* EditUserInvitationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147F151E239E36B7007646D5 /* EditUserInvitationView.xib */; };
+		147F1521239E36C4007646D5 /* EditUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147F1520239E36C4007646D5 /* EditUserView.xib */; };
+		147F1523239E39D1007646D5 /* UserRoleEditContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F1522239E39D1007646D5 /* UserRoleEditContentView.swift */; };
+		147F1525239E406C007646D5 /* MultipleChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F1524239E406C007646D5 /* MultipleChooseView.swift */; };
+		147F1527239E4084007646D5 /* MultipleChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147F1526239E4084007646D5 /* MultipleChooseView.xib */; };
 		1481BF8C2399E9020054B538 /* EditCertificateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1481BF8B2399E9020054B538 /* EditCertificateView.xib */; };
 		1481BF8E2399E91E0054B538 /* EditCertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481BF8D2399E91E0054B538 /* EditCertificateView.swift */; };
 		1481BF902399EADC0054B538 /* EditBundleIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481BF8F2399EADC0054B538 /* EditBundleIDView.swift */; };
@@ -356,6 +365,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		147F1515239DFA7F007646D5 /* UserRoleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleData.swift; sourceTree = "<group>"; };
+		147F1517239DFCB2007646D5 /* ConnectDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectDataManager.swift; sourceTree = "<group>"; };
+		147F151A239E3652007646D5 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
+		147F151C239E3661007646D5 /* EditUserInvitationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInvitationView.swift; sourceTree = "<group>"; };
+		147F151E239E36B7007646D5 /* EditUserInvitationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditUserInvitationView.xib; sourceTree = "<group>"; };
+		147F1520239E36C4007646D5 /* EditUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditUserView.xib; sourceTree = "<group>"; };
+		147F1522239E39D1007646D5 /* UserRoleEditContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleEditContentView.swift; sourceTree = "<group>"; };
+		147F1524239E406C007646D5 /* MultipleChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChooseView.swift; sourceTree = "<group>"; };
+		147F1526239E4084007646D5 /* MultipleChooseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultipleChooseView.xib; sourceTree = "<group>"; };
 		1481BF8B2399E9020054B538 /* EditCertificateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditCertificateView.xib; sourceTree = "<group>"; };
 		1481BF8D2399E91E0054B538 /* EditCertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCertificateView.swift; sourceTree = "<group>"; };
 		1481BF8F2399EADC0054B538 /* EditBundleIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBundleIDView.swift; sourceTree = "<group>"; };
@@ -723,6 +741,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		147F1519239E3528007646D5 /* EditViews */ = {
+			isa = PBXGroup;
+			children = (
+				147F1522239E39D1007646D5 /* UserRoleEditContentView.swift */,
+				147F151A239E3652007646D5 /* EditUserView.swift */,
+				147F1520239E36C4007646D5 /* EditUserView.xib */,
+				147F151C239E3661007646D5 /* EditUserInvitationView.swift */,
+				147F151E239E36B7007646D5 /* EditUserInvitationView.xib */,
+				147F1524239E406C007646D5 /* MultipleChooseView.swift */,
+				147F1526239E4084007646D5 /* MultipleChooseView.xib */,
+			);
+			path = EditViews;
+			sourceTree = "<group>";
+		};
 		1481BF882399E8750054B538 /* EditViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1383,7 +1415,10 @@
 		14B033A7238FAF070038083D /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				14DF7BF3239B534C0012D1C7 /* Profile */,
+				14DF7BF9239BA7DE0012D1C7 /* SalesAndReports */,
+				14DF7BF7239BA7A30012D1C7 /* Users */,
+				14DF7BF6239BA79C0012D1C7 /* TestFlight */,
+				14DF7BF3239B534C0012D1C7 /* Provisioning */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -1393,30 +1428,54 @@
 			children = (
 				14DF7BEE239B3DC00012D1C7 /* NSTask-execute.swift */,
 				14DF7BF0239B3DDA0012D1C7 /* StringByAppendingPathComponent.swift */,
+				147F1517239DFCB2007646D5 /* ConnectDataManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		14DF7BF3239B534C0012D1C7 /* Profile */ = {
+		14DF7BF3239B534C0012D1C7 /* Provisioning */ = {
 			isa = PBXGroup;
 			children = (
 				14DF7BF4239B535D0012D1C7 /* Controllers */,
 				1481BF882399E8750054B538 /* EditViews */,
 				148EE3242397951F00B07C92 /* Datas */,
 			);
-			path = Profile;
+			path = Provisioning;
 			sourceTree = "<group>";
 		};
 		14DF7BF4239B535D0012D1C7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				14B033A8238FAF170038083D /* TestFlightController.swift */,
-				14B033AA238FAF260038083D /* UserRoleController.swift */,
 				14B033AC238FAF370038083D /* ProvisionController.swift */,
-				14B033AE238FAF450038083D /* ReportController.swift */,
-				14B033B0238FAF4D0038083D /* DataController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		14DF7BF6239BA79C0012D1C7 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				14B033A8238FAF170038083D /* TestFlightController.swift */,
+			);
+			path = TestFlight;
+			sourceTree = "<group>";
+		};
+		14DF7BF7239BA7A30012D1C7 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				147F1519239E3528007646D5 /* EditViews */,
+				14B033AA238FAF260038083D /* UserRoleController.swift */,
+				147F1515239DFA7F007646D5 /* UserRoleData.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		14DF7BF9239BA7DE0012D1C7 /* SalesAndReports */ = {
+			isa = PBXGroup;
+			children = (
+				14B033B0238FAF4D0038083D /* DataController.swift */,
+				14B033AE238FAF450038083D /* ReportController.swift */,
+			);
+			path = SalesAndReports;
 			sourceTree = "<group>";
 		};
 		B76588B2C715042036F0B4E8 /* Pods */ = {
@@ -1548,9 +1607,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1481BF9A2399EB530054B538 /* EditDeviceView.xib in Resources */,
+				147F1521239E36C4007646D5 /* EditUserView.xib in Resources */,
 				1482EF98238BD6A90047CF58 /* Assets.xcassets in Resources */,
+				147F1527239E4084007646D5 /* MultipleChooseView.xib in Resources */,
 				1481BF922399EB140054B538 /* EditBundleIDView.xib in Resources */,
 				1481BF962399EB380054B538 /* EditProfileView.xib in Resources */,
+				147F151F239E36B7007646D5 /* EditUserInvitationView.xib in Resources */,
 				1482EF9B238BD6A90047CF58 /* Main.storyboard in Resources */,
 				1481BF8C2399E9020054B538 /* EditCertificateView.xib in Resources */,
 			);
@@ -1689,6 +1751,7 @@
 				1482EF96238BD6A90047CF58 /* ViewController.swift in Sources */,
 				14876907238E1ECD00396E9C /* GetBetaTesterIDsInBetaGroup.swift in Sources */,
 				1487693E238E1ECD00396E9C /* ListUsers.swift in Sources */,
+				147F1523239E39D1007646D5 /* UserRoleEditContentView.swift in Sources */,
 				148768D3238E1ECD00396E9C /* ReadBetaLicenseAgreementInformation.swift in Sources */,
 				1487693A238E1ECD00396E9C /* RemoveUserAccount.swift in Sources */,
 				14876915238E1ECD00396E9C /* CertificatesResponse.swift in Sources */,
@@ -1733,12 +1796,14 @@
 				148768F2238E1ECD00396E9C /* GetBuildIDsOfPrereleaseVersion.swift in Sources */,
 				14876908238E1ECD00396E9C /* AddBetaTestersToBetaGroup.swift in Sources */,
 				14876992238E1ECE00396E9C /* BetaAppLocalizationCreateRequest.swift in Sources */,
+				147F1518239DFCB2007646D5 /* ConnectDataManager.swift in Sources */,
 				148768BB238E1ECD00396E9C /* ListIndividualTestersForBuild.swift in Sources */,
 				14B033AF238FAF450038083D /* ReportController.swift in Sources */,
 				1487695A238E1ECD00396E9C /* AppsResponse.swift in Sources */,
 				14876982238E1ECD00396E9C /* UserRole.swift in Sources */,
 				148768C5238E1ECD00396E9C /* GetResourceIDsOfIndividualTestersForBuild.swift in Sources */,
 				14876960238E1ECD00396E9C /* AppBuildsLinkagesResponse.swift in Sources */,
+				147F1516239DFA7F007646D5 /* UserRoleData.swift in Sources */,
 				1487690F238E1ECD00396E9C /* GetBuildIDsInBetaGroup.swift in Sources */,
 				14876905238E1ECD00396E9C /* DeleteBetaGroup.swift in Sources */,
 				148768DA238E1ECD00396E9C /* CreateBetaBuildLocalization.swift in Sources */,
@@ -1833,11 +1898,13 @@
 				148768BF238E1ECD00396E9C /* GetAppResourceIDForBuild.swift in Sources */,
 				14876912238E1ECD00396E9C /* ReadAppInformationOfBetaGroup.swift in Sources */,
 				148768D2238E1ECD00396E9C /* ListBetaLicenseAgreements.swift in Sources */,
+				147F151D239E3661007646D5 /* EditUserInvitationView.swift in Sources */,
 				14876994238E1ECE00396E9C /* BetaBuildLocalizationsResponse.swift in Sources */,
 				148769B7238E1ECE00396E9C /* BetaAppReviewDetailUpdateRequest.swift in Sources */,
 				148768A3238E1ECC00396E9C /* RemoveBetaTesterFromBetaGroups.swift in Sources */,
 				148768B9238E1ECD00396E9C /* AssignBuildsToAppEncryptionDeclaration.swift in Sources */,
 				148768E1238E1ECD00396E9C /* ReadBuildInformationOfBuildBetaDetail.swift in Sources */,
+				147F1525239E406C007646D5 /* MultipleChooseView.swift in Sources */,
 				14876920238E1ECD00396E9C /* BundleIdCapabilityUpdateRequest.swift in Sources */,
 				14876924238E1ECD00396E9C /* BundleId.swift in Sources */,
 				14876967238E1ECD00396E9C /* BetaAppReviewSubmissionBuildLinkageResponse.swift in Sources */,
@@ -1875,6 +1942,7 @@
 				14876914238E1ECD00396E9C /* Certificate.swift in Sources */,
 				1487698C238E1ECE00396E9C /* BetaTesterAppsLinkagesRequest.swift in Sources */,
 				14876930238E1ECD00396E9C /* ProfileCreateRequest.swift in Sources */,
+				147F151B239E3652007646D5 /* EditUserView.swift in Sources */,
 				14876949238E1ECD00396E9C /* DownloadFinanceReports.swift in Sources */,
 				14876921238E1ECD00396E9C /* BundleIdCapabilityCreateRequest.swift in Sources */,
 				148768C4238E1ECD00396E9C /* ReadAppInformationOfBuild.swift in Sources */,

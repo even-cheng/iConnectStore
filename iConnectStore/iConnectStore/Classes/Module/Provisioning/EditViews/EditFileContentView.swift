@@ -13,7 +13,7 @@ class EditFileContentView: NSView {
     @IBOutlet weak var titleField: NSTextField!
     @IBOutlet weak var doneButton: NSButton!
 
-    open var fileType:FileType? {
+    open var fileType:ProvisionFileType? {
         didSet {
             self.addViews()
         }
@@ -31,40 +31,27 @@ class EditFileContentView: NSView {
 
     private lazy var editCertificateView: EditCertificateView = {
         
-        let editView = self.viewForXIB(class_name: "EditCertificateView") as! EditCertificateView
+        let editView = viewForXIB(class_name: "EditCertificateView") as! EditCertificateView
         return editView
     }()
     
     private lazy var editBundleIDView: EditBundleIDView = {
         
-        let editView = self.viewForXIB(class_name: "EditBundleIDView") as! EditBundleIDView
+        let editView = viewForXIB(class_name: "EditBundleIDView") as! EditBundleIDView
         return editView
     }()
     
     private lazy var editDeviceView: EditDeviceView = {
         
-        let editView = self.viewForXIB(class_name: "EditDeviceView") as! EditDeviceView
+        let editView = viewForXIB(class_name: "EditDeviceView") as! EditDeviceView
         return editView
     }()
     
     private lazy var editProfileView: EditProfileView = {
         
-        let editView = self.viewForXIB(class_name: "EditProfileView") as! EditProfileView
+        let editView = viewForXIB(class_name: "EditProfileView") as! EditProfileView
         return editView
     }()
-    
-    private func viewForXIB(class_name: String) -> NSView?{
-        
-        let xib = NSNib.init(nibNamed: class_name, bundle: nil)
-        var views: NSArray?
-        xib!.instantiate(withOwner: nil, topLevelObjects: &views)
-        for view in views! {
-            if let editView = view as? NSView {
-                return editView
-            }
-        }
-        return nil
-    }
 
         
     //MARK: Functions
@@ -325,5 +312,22 @@ class EditFileContentView: NSView {
 
         case .none: break
         }
+    }
+}
+
+
+extension NSView {
+    
+    func viewForXIB(class_name: String) -> NSView?{
+        
+        let xib = NSNib.init(nibNamed: class_name, bundle: nil)
+        var views: NSArray?
+        xib!.instantiate(withOwner: nil, topLevelObjects: &views)
+        for view in views! {
+            if let editView = view as? NSView {
+                return editView
+            }
+        }
+        return nil
     }
 }
