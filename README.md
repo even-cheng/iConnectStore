@@ -1,5 +1,5 @@
 # iConnectStore
-easy to connect developer account and manager your apps、certificates、profiles、testflight ...
+easy to connect developer account and manager your teams, apps、certificates、profiles、testflight ...
 
 ![setting:](https://github.com/even-cheng/iConnectStore/blob/master/Snip20191207_2.png)
 ![certifier manager1:](https://github.com/even-cheng/iConnectStore/blob/master/Snip20191207_3.png)
