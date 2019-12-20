@@ -1,8 +1,8 @@
 use_frameworks!
 
-target "iConnectStore" do
+target 'iConnectStore' do
 
-  pod "PromiseKit", "~> 6.8"
+  pod 'PromiseKit', '~> 6.8'
   pod 'SnapKit'
   
 end

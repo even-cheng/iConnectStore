@@ -107,12 +107,69 @@ class ProfileDataManager: ConnectDataManager {
         
         let p = Promise<[BundleId]> { resolver in
             
-            let endpoint = APIEndpoint.bundleIds(fields: [.bundleIds([.bundleIdCapabilities, .identifier, .name, .platform, .profiles, .seedId]), .profiles([.bundleId, .certificates, .createdDate, .devices, .expirationDate, .name, .platform, .profileContent, .profileState, .profileType, .uuid]), .bundleIdCapabilities([.bundleId, .capabilityType, .settings])])
+            let endpoint = APIEndpoint.bundleIds(fields: [.bundleIds([.bundleIdCapabilities, .identifier, .name, .platform, .profiles, .seedId]), .profiles([.bundleId, .certificates, .createdDate, .devices, .expirationDate, .name, .platform, .profileContent, .profileState, .profileType, .uuid]), .bundleIdCapabilities([.bundleId, .capabilityType, .settings])], limit: [.profiles(100)])
             provider!.request(endpoint) {
                 switch $0 {
                 case .success(let bundleIdResponse):
                     let bundleIds = bundleIdResponse.data
                     resolver.fulfill(bundleIds)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+        
+        return p
+    }
+    
+    func listDevicesInProfile(id: String) -> Promise<[Device]> {
+        
+        let p = Promise<[Device]> { resolver in
+            
+            let endpoint = APIEndpoint.listAllDevicesInProfile(id: id, limit:100)
+            provider!.request(endpoint) {
+                switch $0 {
+                case .success(let response):
+                    let devices = response.data
+                    resolver.fulfill(devices)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+        
+        return p
+    }
+    
+    func loadBundleIDInProfile(id: String) -> Promise<BundleId> {
+        
+        let p = Promise<BundleId> { resolver in
+            
+            let endpoint = APIEndpoint.readTheBundleIdInProfle(id: id)
+            provider!.request(endpoint) {
+                switch $0 {
+                case .success(let response):
+                    let bundleId = response.data
+                    resolver.fulfill(bundleId)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+        
+        return p
+    }
+    
+    func listCertificatesInProfile(id: String) -> Promise<[Certificate]> {
+        
+        let p = Promise<[Certificate]> { resolver in
+            
+            let endpoint = APIEndpoint.listAllCertificatesInProfile(id: id)
+            provider!.request(endpoint) {
+                switch $0 {
+                case .success(let response):
+                    let cers = response.data
+                    resolver.fulfill(cers)
                 case .failure(let error):
                     resolver.reject(error)
                 }

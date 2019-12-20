@@ -17,7 +17,9 @@ class EditDeviceView: NSView {
         didSet{
             self.nameField.stringValue = device?.attributes?.name ?? ""
             self.UDIDField.stringValue = device?.attributes?.udid ?? ""
-            self.UDIDField.isEnabled = false
+            if device != nil {
+                self.UDIDField.isEnabled = false
+            }
         }
     }
     

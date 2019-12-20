@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1407534123AB5D1B00CCBCCE /* MyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1407534023AB5D1B00CCBCCE /* MyExtension.swift */; };
+		1407534623AB91CD00CCBCCE /* SYFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1407534523AB91C700CCBCCE /* SYFlatButton.m */; };
+		147A2FB223A778F300C549DE /* ContentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147A2FB123A778F300C549DE /* ContentTableView.swift */; };
 		147F1516239DFA7F007646D5 /* UserRoleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F1515239DFA7F007646D5 /* UserRoleData.swift */; };
 		147F1518239DFCB2007646D5 /* ConnectDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F1517239DFCB2007646D5 /* ConnectDataManager.swift */; };
 		147F151B239E3652007646D5 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F151A239E3652007646D5 /* EditUserView.swift */; };
 		147F151D239E3661007646D5 /* EditUserInvitationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F151C239E3661007646D5 /* EditUserInvitationView.swift */; };
 		147F151F239E36B7007646D5 /* EditUserInvitationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147F151E239E36B7007646D5 /* EditUserInvitationView.xib */; };
 		147F1521239E36C4007646D5 /* EditUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147F1520239E36C4007646D5 /* EditUserView.xib */; };
-		147F1523239E39D1007646D5 /* UserRoleEditContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F1522239E39D1007646D5 /* UserRoleEditContentView.swift */; };
 		147F1525239E406C007646D5 /* MultipleChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F1524239E406C007646D5 /* MultipleChooseView.swift */; };
 		147F1527239E4084007646D5 /* MultipleChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147F1526239E4084007646D5 /* MultipleChooseView.xib */; };
 		1481BF8C2399E9020054B538 /* EditCertificateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1481BF8B2399E9020054B538 /* EditCertificateView.xib */; };
@@ -335,10 +337,6 @@
 		148769C9238E1ECE00396E9C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487689A238E1ECC00396E9C /* Endpoint.swift */; };
 		14876A0F238E64F600396E9C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14876A0E238E64F600396E9C /* WindowController.swift */; };
 		148EE3262397953700B07C92 /* ProfileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EE3252397953700B07C92 /* ProfileDataManager.swift */; };
-		14B033A9238FAF170038083D /* TestFlightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033A8238FAF170038083D /* TestFlightController.swift */; };
-		14B033AB238FAF260038083D /* UserRoleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033AA238FAF260038083D /* UserRoleController.swift */; };
-		14B033AF238FAF450038083D /* ReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033AE238FAF450038083D /* ReportController.swift */; };
-		14B033B1238FAF4D0038083D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033B0238FAF4D0038083D /* DataController.swift */; };
 		14B033B3238FAF560038083D /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B033B2238FAF560038083D /* SettingController.swift */; };
 		14CDE79223990683000C5E60 /* EditFileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CDE79123990683000C5E60 /* EditFileContentView.swift */; };
 		14DF7BEF239B3DC00012D1C7 /* NSTask-execute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF7BEE239B3DC00012D1C7 /* NSTask-execute.swift */; };
@@ -365,13 +363,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1407534023AB5D1B00CCBCCE /* MyExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExtension.swift; sourceTree = "<group>"; };
+		1407534423AB91C700CCBCCE /* SYFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYFlatButton.h; sourceTree = "<group>"; };
+		1407534523AB91C700CCBCCE /* SYFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYFlatButton.m; sourceTree = "<group>"; };
+		147A2FB123A778F300C549DE /* ContentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableView.swift; sourceTree = "<group>"; };
 		147F1515239DFA7F007646D5 /* UserRoleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleData.swift; sourceTree = "<group>"; };
 		147F1517239DFCB2007646D5 /* ConnectDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectDataManager.swift; sourceTree = "<group>"; };
 		147F151A239E3652007646D5 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 		147F151C239E3661007646D5 /* EditUserInvitationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInvitationView.swift; sourceTree = "<group>"; };
 		147F151E239E36B7007646D5 /* EditUserInvitationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditUserInvitationView.xib; sourceTree = "<group>"; };
 		147F1520239E36C4007646D5 /* EditUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditUserView.xib; sourceTree = "<group>"; };
-		147F1522239E39D1007646D5 /* UserRoleEditContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleEditContentView.swift; sourceTree = "<group>"; };
 		147F1524239E406C007646D5 /* MultipleChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChooseView.swift; sourceTree = "<group>"; };
 		147F1526239E4084007646D5 /* MultipleChooseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultipleChooseView.xib; sourceTree = "<group>"; };
 		1481BF8B2399E9020054B538 /* EditCertificateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditCertificateView.xib; sourceTree = "<group>"; };
@@ -701,11 +702,7 @@
 		14876A09238E230500396E9C /* iConnectStore-OC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iConnectStore-OC.h"; sourceTree = "<group>"; };
 		14876A0E238E64F600396E9C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		148EE3252397953700B07C92 /* ProfileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataManager.swift; sourceTree = "<group>"; };
-		14B033A8238FAF170038083D /* TestFlightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFlightController.swift; sourceTree = "<group>"; };
-		14B033AA238FAF260038083D /* UserRoleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleController.swift; sourceTree = "<group>"; };
 		14B033AC238FAF370038083D /* ProvisionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvisionController.swift; sourceTree = "<group>"; };
-		14B033AE238FAF450038083D /* ReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportController.swift; sourceTree = "<group>"; };
-		14B033B0238FAF4D0038083D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		14B033B2238FAF560038083D /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		14CDE79123990683000C5E60 /* EditFileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFileContentView.swift; sourceTree = "<group>"; };
 		14DF7BEE239B3DC00012D1C7 /* NSTask-execute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTask-execute.swift"; sourceTree = "<group>"; };
@@ -741,21 +738,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		147F1519239E3528007646D5 /* EditViews */ = {
+		1407534323AB91C700CCBCCE /* SYFlatButton */ = {
 			isa = PBXGroup;
 			children = (
-				147F1522239E39D1007646D5 /* UserRoleEditContentView.swift */,
-				147F151A239E3652007646D5 /* EditUserView.swift */,
-				147F1520239E36C4007646D5 /* EditUserView.xib */,
-				147F151C239E3661007646D5 /* EditUserInvitationView.swift */,
-				147F151E239E36B7007646D5 /* EditUserInvitationView.xib */,
-				147F1524239E406C007646D5 /* MultipleChooseView.swift */,
-				147F1526239E4084007646D5 /* MultipleChooseView.xib */,
+				1407534423AB91C700CCBCCE /* SYFlatButton.h */,
+				1407534523AB91C700CCBCCE /* SYFlatButton.m */,
 			);
-			path = EditViews;
+			path = SYFlatButton;
 			sourceTree = "<group>";
 		};
-		1481BF882399E8750054B538 /* EditViews */ = {
+		1481BF882399E8750054B538 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
 				14CDE79123990683000C5E60 /* EditFileContentView.swift */,
@@ -767,8 +759,14 @@
 				1481BF992399EB530054B538 /* EditDeviceView.xib */,
 				1481BF932399EB280054B538 /* EditProfileView.swift */,
 				1481BF952399EB380054B538 /* EditProfileView.xib */,
+				147F151A239E3652007646D5 /* EditUserView.swift */,
+				147F1520239E36C4007646D5 /* EditUserView.xib */,
+				147F151C239E3661007646D5 /* EditUserInvitationView.swift */,
+				147F151E239E36B7007646D5 /* EditUserInvitationView.xib */,
+				147F1524239E406C007646D5 /* MultipleChooseView.swift */,
+				147F1526239E4084007646D5 /* MultipleChooseView.xib */,
 			);
-			path = EditViews;
+			path = Edit;
 			sourceTree = "<group>";
 		};
 		1482EF87238BD6A90047CF58 = {
@@ -1407,6 +1405,7 @@
 		148EE3242397951F00B07C92 /* Datas */ = {
 			isa = PBXGroup;
 			children = (
+				147F1515239DFA7F007646D5 /* UserRoleData.swift */,
 				148EE3252397953700B07C92 /* ProfileDataManager.swift */,
 			);
 			path = Datas;
@@ -1415,9 +1414,6 @@
 		14B033A7238FAF070038083D /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				14DF7BF9239BA7DE0012D1C7 /* SalesAndReports */,
-				14DF7BF7239BA7A30012D1C7 /* Users */,
-				14DF7BF6239BA79C0012D1C7 /* TestFlight */,
 				14DF7BF3239B534C0012D1C7 /* Provisioning */,
 			);
 			path = Module;
@@ -1426,9 +1422,11 @@
 		14DF7BF2239B3DE90012D1C7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1407534323AB91C700CCBCCE /* SYFlatButton */,
 				14DF7BEE239B3DC00012D1C7 /* NSTask-execute.swift */,
 				14DF7BF0239B3DDA0012D1C7 /* StringByAppendingPathComponent.swift */,
 				147F1517239DFCB2007646D5 /* ConnectDataManager.swift */,
+				1407534023AB5D1B00CCBCCE /* MyExtension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1436,46 +1434,20 @@
 		14DF7BF3239B534C0012D1C7 /* Provisioning */ = {
 			isa = PBXGroup;
 			children = (
-				14DF7BF4239B535D0012D1C7 /* Controllers */,
-				1481BF882399E8750054B538 /* EditViews */,
+				14DF7BF4239B535D0012D1C7 /* Views */,
+				1481BF882399E8750054B538 /* Edit */,
 				148EE3242397951F00B07C92 /* Datas */,
 			);
 			path = Provisioning;
 			sourceTree = "<group>";
 		};
-		14DF7BF4239B535D0012D1C7 /* Controllers */ = {
+		14DF7BF4239B535D0012D1C7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				147A2FB123A778F300C549DE /* ContentTableView.swift */,
 				14B033AC238FAF370038083D /* ProvisionController.swift */,
 			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		14DF7BF6239BA79C0012D1C7 /* TestFlight */ = {
-			isa = PBXGroup;
-			children = (
-				14B033A8238FAF170038083D /* TestFlightController.swift */,
-			);
-			path = TestFlight;
-			sourceTree = "<group>";
-		};
-		14DF7BF7239BA7A30012D1C7 /* Users */ = {
-			isa = PBXGroup;
-			children = (
-				147F1519239E3528007646D5 /* EditViews */,
-				14B033AA238FAF260038083D /* UserRoleController.swift */,
-				147F1515239DFA7F007646D5 /* UserRoleData.swift */,
-			);
-			path = Users;
-			sourceTree = "<group>";
-		};
-		14DF7BF9239BA7DE0012D1C7 /* SalesAndReports */ = {
-			isa = PBXGroup;
-			children = (
-				14B033B0238FAF4D0038083D /* DataController.swift */,
-				14B033AE238FAF450038083D /* ReportController.swift */,
-			);
-			path = SalesAndReports;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B76588B2C715042036F0B4E8 /* Pods */ = {
@@ -1697,7 +1669,6 @@
 				148769C2238E1ECE00396E9C /* BuildRelationship.swift in Sources */,
 				148769C4238E1ECE00396E9C /* BetaAppReviewDetailsResponse.swift in Sources */,
 				148768C0238E1ECD00396E9C /* AssignIndividualTestersToBuild.swift in Sources */,
-				14B033B1238FAF4D0038083D /* DataController.swift in Sources */,
 				14876966238E1ECD00396E9C /* AppRelationship.swift in Sources */,
 				148769BB238E1ECE00396E9C /* BetaInviteType.swift in Sources */,
 				14876916238E1ECD00396E9C /* CertificateType.swift in Sources */,
@@ -1746,12 +1717,12 @@
 				148768AE238E1ECC00396E9C /* ListBetaTesters.swift in Sources */,
 				148768B5238E1ECD00396E9C /* ReadBetaAppReviewSubmissionInformation.swift in Sources */,
 				14876902238E1ECD00396E9C /* ListBetaAppLocalizationsOfApp.swift in Sources */,
+				1407534623AB91CD00CCBCCE /* SYFlatButton.m in Sources */,
 				148769B9238E1ECE00396E9C /* BetaAppLocalization.swift in Sources */,
 				14876925238E1ECD00396E9C /* BundleIdProfilesLinkagesResponse.swift in Sources */,
 				1482EF96238BD6A90047CF58 /* ViewController.swift in Sources */,
 				14876907238E1ECD00396E9C /* GetBetaTesterIDsInBetaGroup.swift in Sources */,
 				1487693E238E1ECD00396E9C /* ListUsers.swift in Sources */,
-				147F1523239E39D1007646D5 /* UserRoleEditContentView.swift in Sources */,
 				148768D3238E1ECD00396E9C /* ReadBetaLicenseAgreementInformation.swift in Sources */,
 				1487693A238E1ECD00396E9C /* RemoveUserAccount.swift in Sources */,
 				14876915238E1ECD00396E9C /* CertificatesResponse.swift in Sources */,
@@ -1798,7 +1769,6 @@
 				14876992238E1ECE00396E9C /* BetaAppLocalizationCreateRequest.swift in Sources */,
 				147F1518239DFCB2007646D5 /* ConnectDataManager.swift in Sources */,
 				148768BB238E1ECD00396E9C /* ListIndividualTestersForBuild.swift in Sources */,
-				14B033AF238FAF450038083D /* ReportController.swift in Sources */,
 				1487695A238E1ECD00396E9C /* AppsResponse.swift in Sources */,
 				14876982238E1ECD00396E9C /* UserRole.swift in Sources */,
 				148768C5238E1ECD00396E9C /* GetResourceIDsOfIndividualTestersForBuild.swift in Sources */,
@@ -1806,6 +1776,7 @@
 				147F1516239DFA7F007646D5 /* UserRoleData.swift in Sources */,
 				1487690F238E1ECD00396E9C /* GetBuildIDsInBetaGroup.swift in Sources */,
 				14876905238E1ECD00396E9C /* DeleteBetaGroup.swift in Sources */,
+				147A2FB223A778F300C549DE /* ContentTableView.swift in Sources */,
 				148768DA238E1ECD00396E9C /* CreateBetaBuildLocalization.swift in Sources */,
 				148768B1238E1ECC00396E9C /* SubmitAppForBetaReview.swift in Sources */,
 				1487696E238E1ECD00396E9C /* AppBetaGroupsLinkagesResponse.swift in Sources */,
@@ -1823,7 +1794,6 @@
 				148769C0238E1ECE00396E9C /* BetaAppLocalizationResponse.swift in Sources */,
 				148EE3262397953700B07C92 /* ProfileDataManager.swift in Sources */,
 				148769B8238E1ECE00396E9C /* ResourceLinks.swift in Sources */,
-				14B033A9238FAF170038083D /* TestFlightController.swift in Sources */,
 				148768E3238E1ECD00396E9C /* ReadBetaAppLocalizationInformation.swift in Sources */,
 				1487690C238E1ECD00396E9C /* RemoveBuildsFromBetaGroup.swift in Sources */,
 				148768AF238E1ECC00396E9C /* DeleteBetaTester.swift in Sources */,
@@ -1844,6 +1814,7 @@
 				14876941238E1ECD00396E9C /* ModifyUserAccount.swift in Sources */,
 				14876990238E1ECE00396E9C /* AppBetaAppLocalizationsLinkagesResponse.swift in Sources */,
 				14876911238E1ECD00396E9C /* RemoveBetaTestersFromBetaGroup.swift in Sources */,
+				1407534123AB5D1B00CCBCCE /* MyExtension.swift in Sources */,
 				148768E4238E1ECD00396E9C /* ReadAppInformationOfBetaAppLocalization.swift in Sources */,
 				1487694D238E1ECD00396E9C /* BuildBuildBetaDetailLinkageResponse.swift in Sources */,
 				148768A9238E1ECC00396E9C /* ListBetaGroupsToWhichBetaTesterBelongs.swift in Sources */,
@@ -1894,7 +1865,6 @@
 				14876964238E1ECD00396E9C /* AppEncryptionDeclarationAppLinkageResponse.swift in Sources */,
 				148768E6238E1ECD00396E9C /* ListBetaAppLocalizations.swift in Sources */,
 				1487690E238E1ECD00396E9C /* AddBuildsToBetaGroup.swift in Sources */,
-				14B033AB238FAF260038083D /* UserRoleController.swift in Sources */,
 				148768BF238E1ECD00396E9C /* GetAppResourceIDForBuild.swift in Sources */,
 				14876912238E1ECD00396E9C /* ReadAppInformationOfBetaGroup.swift in Sources */,
 				148768D2238E1ECD00396E9C /* ListBetaLicenseAgreements.swift in Sources */,

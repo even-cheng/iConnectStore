@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct AppSignerTaskOutput {
     var output: String
     var status: Int32
@@ -15,6 +16,7 @@ struct AppSignerTaskOutput {
         self.output = output
     }
 }
+
 extension Process {
     func launchSyncronous() -> AppSignerTaskOutput {
         self.standardInput = FileHandle.nullDevice

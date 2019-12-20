@@ -15,15 +15,12 @@ class ViewController: NSViewController {
     @IBOutlet weak var UserRolesButton: NSButton!
     @IBOutlet weak var ProvisioningButton: NSButton!
     @IBOutlet weak var ReportingButton: NSButton!
-    @IBOutlet weak var PagingButton: NSButton!
-    @IBOutlet weak var testContainerView: NSView!
-    @IBOutlet weak var userContainerView: NSView!
     @IBOutlet weak var provisionContainerView: NSView!
-    @IBOutlet weak var reportContainerView: NSView!
-    @IBOutlet weak var DataContainerView: NSView!
     @IBOutlet weak var settingContainerView: NSView!
     
     var lastSelectLeftButton: NSButton?
+    var provisioningController: ProvisionController?
+    var settingController: SettingController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +40,22 @@ class ViewController: NSViewController {
         self.leftToolsView.wantsLayer = true
         self.leftToolsView.layer!.backgroundColor = NSColor(red:0.35, green:0.35, blue:0.35, alpha:1.00).cgColor
         
-        setupButton(btn: TestingButton)
         setupButton(btn: UserRolesButton)
         setupButton(btn: ProvisioningButton)
         setupButton(btn: ReportingButton)
-        setupButton(btn: PagingButton)
-        lastSelectLeftButton = TestingButton
+        setupButton(btn: TestingButton)
+        lastSelectLeftButton = UserRolesButton
+        provisioningController?.segmentType = SegmentType(rawValue: lastSelectLeftButton!.tag)!
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        
+        let vc: NSViewController = segue.destinationController as! NSViewController
+        if vc.className == "iConnectStore.ProvisionController" {
+            provisioningController = segue.destinationController as? ProvisionController
+        } else if vc.className == "iConnectStore.SettingController" {
+            settingController = segue.destinationController as? SettingController
+        }
     }
 
     private func setupButton(btn: NSButton){
@@ -72,11 +79,8 @@ class ViewController: NSViewController {
         setupButton(btn: sender)
         lastSelectLeftButton = sender
         
-        self.testContainerView.isHidden = sender.tag != 0
-        self.userContainerView.isHidden = sender.tag != 1
-        self.provisionContainerView.isHidden = sender.tag != 2
-        self.reportContainerView.isHidden = sender.tag != 3
-        self.DataContainerView.isHidden = sender.tag != 4
+        provisioningController?.segmentType = SegmentType(rawValue: sender.tag)!
+        self.provisionContainerView.isHidden = sender.tag == 5
         self.settingContainerView.isHidden = sender.tag != 5
     }
 }

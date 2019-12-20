@@ -18,8 +18,10 @@ class EditBundleIDView: NSView {
             guard nameField != nil else {return}
             nameField.stringValue = bundleID?.attributes?.name ?? ""
             bundleIDField.stringValue = bundleID?.attributes?.identifier ?? ""
-            platformButton.isEnabled = false
-            bundleIDField.isEnabled = false
+            if bundleID != nil {
+                platformButton.isEnabled = false
+                bundleIDField.isEnabled = false
+            }
         }
     }
     

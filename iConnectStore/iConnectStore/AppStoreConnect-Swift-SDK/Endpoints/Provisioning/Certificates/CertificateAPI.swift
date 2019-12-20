@@ -40,7 +40,7 @@ extension APIEndpoint where T == CertificatesResponse {
     public static func listAndDownloadCertificates(
         fields: [ListCertificates.Field]? = nil,
         filter: [ListCertificates.Filter]? = nil,
-        limit: Int? = nil,
+        limit: Int? = 100,
         sort: [ListCertificates.Sort]? = nil,
         next: PagedDocumentLinks? = nil) -> APIEndpoint {
         var parameters = [String: Any]()
