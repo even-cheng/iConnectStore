@@ -107,7 +107,7 @@ class ProfileDataManager: ConnectDataManager {
         
         let p = Promise<[BundleId]> { resolver in
             
-            let endpoint = APIEndpoint.bundleIds(fields: [.bundleIds([.bundleIdCapabilities, .identifier, .name, .platform, .profiles, .seedId]), .profiles([.bundleId, .certificates, .createdDate, .devices, .expirationDate, .name, .platform, .profileContent, .profileState, .profileType, .uuid]), .bundleIdCapabilities([.bundleId, .capabilityType, .settings])], limit: [.profiles(100)])
+            let endpoint = APIEndpoint.bundleIds(fields: [.bundleIds([.bundleIdCapabilities, .identifier, .name, .platform, .profiles, .seedId]), .profiles([.bundleId, .certificates, .createdDate, .devices, .expirationDate, .name, .platform, .profileContent, .profileState, .profileType, .uuid]), .bundleIdCapabilities([.bundleId, .capabilityType, .settings])], limit: 200)
             provider!.request(endpoint) {
                 switch $0 {
                 case .success(let bundleIdResponse):
@@ -160,16 +160,16 @@ class ProfileDataManager: ConnectDataManager {
         return p
     }
     
-    func listCertificatesInProfile(id: String) -> Promise<[Certificate]> {
+    func listCertificateIdsInProfile(id: String) -> Promise<[ProfileCertificatesLinkagesResponse.Data]> {
         
-        let p = Promise<[Certificate]> { resolver in
+        let p = Promise<[ProfileCertificatesLinkagesResponse.Data]> { resolver in
             
-            let endpoint = APIEndpoint.listAllCertificatesInProfile(id: id)
+            let endpoint = APIEndpoint.getAllCertificateIdsInProfile(id: id)
             provider!.request(endpoint) {
                 switch $0 {
                 case .success(let response):
-                    let cers = response.data
-                    resolver.fulfill(cers)
+                    let cer = response.data
+                    resolver.fulfill(cer)
                 case .failure(let error):
                     resolver.reject(error)
                 }

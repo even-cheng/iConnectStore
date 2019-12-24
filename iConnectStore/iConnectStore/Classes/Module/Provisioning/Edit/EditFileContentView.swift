@@ -216,7 +216,11 @@ class EditFileContentView: NSView {
     
     @IBAction func DoneAction(_ sender: NSButton) {
         
+        sender.isEnabled = false
+        sender.title = "waiting.."
         self.upldateOrCreat { (res) -> (Void) in
+            sender.isEnabled = true
+            sender.title = "submit"
             if res == true {
                 self.CloseAction(sender)
                 if self.submitSuccessAction != nil {
@@ -399,7 +403,7 @@ class EditFileContentView: NSView {
                 }
                 let bundle_id = self.bundleIDs![self.editProfileView.selectBundleButton.indexOfSelectedItem].id
                 
-                if self.edit_device == nil {
+                if self.edit_profile == nil {
                     // creatProvisionFile
                     ProfileDataManager().creatProvisionFile(name: name, bundleId: bundle_id, profileType:selectProfileType, certificates: certificate_ids, devices: device_ids).done { (devices) in
                         complete(true)

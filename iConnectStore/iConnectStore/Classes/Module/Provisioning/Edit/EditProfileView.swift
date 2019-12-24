@@ -34,7 +34,7 @@ class EditProfileView: NSView {
     
     open var devices: [Device]? {
         didSet{
-            self.resetDatas()
+//            self.resetDatas()
         }
     }
     open var choosed_device_indexs: [Int] = []{
@@ -45,7 +45,7 @@ class EditProfileView: NSView {
     
     open var certificates: [Certificate]? {
         didSet{
-            self.resetDatas()
+//            self.resetDatas()
         }
     }
     open var choosed_certificate_indexs: [Int] = []{
@@ -116,7 +116,7 @@ class EditProfileView: NSView {
     private func loadCersInProfile() {
         
         guard self.profile != nil && self.certificates != nil else {return}
-        ProfileDataManager().listCertificatesInProfile(id: self.profile!.id).done {[weak self] (cers) in
+        ProfileDataManager().listCertificateIdsInProfile(id: self.profile!.id).done {[weak self] (cers) in
             
             var index = 0
             var choose_cers: [Int] = []
@@ -166,15 +166,15 @@ class EditProfileView: NSView {
         }
         self.selectDevicesField.stringValue = "\(selectDevices?.count ?? 0) devices"
 
-        var selectCers: [Certificate]?
+        var selectCers: [Certificate] = []
         for cer in certificates! {
             if selectProfileType.hasPrefix("IOS") && cer.attributes!.certificateType!.rawValue.hasPrefix("IOS"){
-                selectCers?.append(cer)
+                selectCers.append(cer)
             } else if selectProfileType.hasPrefix("MAC") && cer.attributes!.certificateType!.rawValue.hasPrefix("MAC"){
-                selectCers?.append(cer)
+                selectCers.append(cer)
             }
         }
-        self.selectCertificatesField.stringValue = "\(selectCers?.count ?? 0) certificates"
+        self.selectCertificatesField.stringValue = "\(selectCers.count) certificates"
     }
     
     @IBAction func showAllDevices(_ sender: NSButton) {

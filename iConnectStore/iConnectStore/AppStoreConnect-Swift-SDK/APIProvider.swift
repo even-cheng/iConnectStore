@@ -138,6 +138,8 @@ private extension APIProvider {
             guard let data = response.data, 200..<300 ~= response.statusCode else {
                 return .failure(Error.requestFailure(response.statusCode, response.data))
             }
+            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            print(json ?? "")
             guard let decodedValue = try? jsonDecoder.decode(T.self, from: data) else {
                 return .failure(Error.decodingError(data))
             }

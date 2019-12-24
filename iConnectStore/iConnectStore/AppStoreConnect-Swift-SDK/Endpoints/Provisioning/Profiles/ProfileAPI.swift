@@ -226,8 +226,8 @@ extension APIEndpoint where T == CertificatesResponse {
     
     public static func listAllCertificatesInProfile(
         id: String,
-        fields: [ListProfiles.Field]? = nil,
-        limit: Int? = nil) -> APIEndpoint {
+        fields: [ListCertificates.Field]? = nil,
+        limit: Int? = 100) -> APIEndpoint {
         var parameters = [String: Any]()
         if let fields = fields { parameters.add(fields) }
         if let limit = limit { parameters["limit"] = limit }
