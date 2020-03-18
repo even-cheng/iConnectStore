@@ -14,17 +14,24 @@ class ConnectDataManager: NSObject {
     var configuration: APIConfiguration?
     var provider: APIProvider?
     override init() {
-        let issuer = UserDefaults.standard.value(forKey: "issuerId"), key = UserDefaults.standard.value(forKey: "privateKey"),keyId = UserDefaults.standard.value(forKey: "privateKeyId")
-        if issuer == nil || key == nil || keyId == nil{
-            
-            let alert = NSAlert.init()
-            alert.messageText = "Error!"
-            alert.informativeText = "login failed, please goto Setting to input your keys"
-            alert.addButton(withTitle: "OK")
-            alert.alertStyle = .warning
-            alert.beginSheetModal(for: NSApplication.shared.keyWindow!, completionHandler: nil)
-            return
+        var issuer = UserDefaults.standard.value(forKey: "issuerId"), key = UserDefaults.standard.value(forKey: "privateKey"),keyId = UserDefaults.standard.value(forKey: "privateKeyId")
+        if issuer == nil {
+            issuer = ""
         }
+        if key == nil {
+            key = ""
+        }
+        if keyId == nil {
+            keyId = ""
+        }
+            
+//            let alert = NSAlert.init()
+//            alert.messageText = "Error!"
+//            alert.informativeText = "login failed, please goto Setting to input your keys"
+//            alert.addButton(withTitle: "OK")
+//            alert.alertStyle = .warning
+//            alert.beginSheetModal(for: NSApplication.shared.windows.last!, completionHandler: nil)
+           
         configuration = APIConfiguration(issuerID: issuer as! String, privateKeyID: keyId as! String, privateKey: key as! String)
         provider = APIProvider(configuration: configuration!)
     }

@@ -92,6 +92,11 @@ class ProvisionController: NSViewController {
         case .provisioning:
             self.reloadProvisioningDatas(forceToUpdate: false)
         case .reportAndSales:
+            if self.lastSelectLeftButton?.tag == 0 {
+                self.editContentView.downloadRepoType = .finance
+            } else {
+                self.editContentView.downloadRepoType = .salesAndTrends
+            }
             return
         case .testFlight:
             return
@@ -104,6 +109,7 @@ class ProvisionController: NSViewController {
         
         var buttonNames: [String]?
         var btnTag = 0
+        self.editContentView.isHidden = true
         
         switch self.segmentType {
         case .userRole:
@@ -111,7 +117,8 @@ class ProvisionController: NSViewController {
         case .provisioning:
             buttonNames = ["Cer", "Bud", "Dev", "Prv"]
         case .reportAndSales:
-            buttonNames = ["Repo", "Sale"]
+            buttonNames = ["Fina", "Sale"]
+            self.editContentView.isHidden = false
         case .testFlight:
             buttonNames = ["App", "Usr", "Add"]
         case .settings:
@@ -159,7 +166,9 @@ class ProvisionController: NSViewController {
         setupButton(btn: sender)
         lastSelectLeftButton = sender
         self.editContentView.isHidden = true
-        
+        if self.segmentType == .reportAndSales {
+            self.editContentView.isHidden = false
+        }
         setupContentDatas()
         self.contentTableView.selectTag = lastSelectLeftButton!.tag
         reloadHeaderViews()

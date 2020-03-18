@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1407534123AB5D1B00CCBCCE /* MyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1407534023AB5D1B00CCBCCE /* MyExtension.swift */; };
 		1407534623AB91CD00CCBCCE /* SYFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1407534523AB91C700CCBCCE /* SYFlatButton.m */; };
+		14445BF923B1DE6D0009FF4F /* DownloadFinanceRepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14445BF823B1DE6D0009FF4F /* DownloadFinanceRepoView.swift */; };
+		14445BFB23B1DE880009FF4F /* DownloadSalesAndTrendsRepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14445BFA23B1DE880009FF4F /* DownloadSalesAndTrendsRepoView.swift */; };
+		14445BFD23B1DE9B0009FF4F /* DownloadFinanceRepoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14445BFC23B1DE9B0009FF4F /* DownloadFinanceRepoView.xib */; };
+		14445BFF23B1DEA30009FF4F /* DownloadSalesAndTrendsRepoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14445BFE23B1DEA30009FF4F /* DownloadSalesAndTrendsRepoView.xib */; };
 		147A2FB223A778F300C549DE /* ContentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147A2FB123A778F300C549DE /* ContentTableView.swift */; };
 		147F1516239DFA7F007646D5 /* UserRoleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F1515239DFA7F007646D5 /* UserRoleData.swift */; };
 		147F1518239DFCB2007646D5 /* ConnectDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147F1517239DFCB2007646D5 /* ConnectDataManager.swift */; };
@@ -366,6 +370,10 @@
 		1407534023AB5D1B00CCBCCE /* MyExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExtension.swift; sourceTree = "<group>"; };
 		1407534423AB91C700CCBCCE /* SYFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYFlatButton.h; sourceTree = "<group>"; };
 		1407534523AB91C700CCBCCE /* SYFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYFlatButton.m; sourceTree = "<group>"; };
+		14445BF823B1DE6D0009FF4F /* DownloadFinanceRepoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFinanceRepoView.swift; sourceTree = "<group>"; };
+		14445BFA23B1DE880009FF4F /* DownloadSalesAndTrendsRepoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSalesAndTrendsRepoView.swift; sourceTree = "<group>"; };
+		14445BFC23B1DE9B0009FF4F /* DownloadFinanceRepoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadFinanceRepoView.xib; sourceTree = "<group>"; };
+		14445BFE23B1DEA30009FF4F /* DownloadSalesAndTrendsRepoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadSalesAndTrendsRepoView.xib; sourceTree = "<group>"; };
 		147A2FB123A778F300C549DE /* ContentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableView.swift; sourceTree = "<group>"; };
 		147F1515239DFA7F007646D5 /* UserRoleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleData.swift; sourceTree = "<group>"; };
 		147F1517239DFCB2007646D5 /* ConnectDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectDataManager.swift; sourceTree = "<group>"; };
@@ -765,6 +773,10 @@
 				147F151E239E36B7007646D5 /* EditUserInvitationView.xib */,
 				147F1524239E406C007646D5 /* MultipleChooseView.swift */,
 				147F1526239E4084007646D5 /* MultipleChooseView.xib */,
+				14445BF823B1DE6D0009FF4F /* DownloadFinanceRepoView.swift */,
+				14445BFC23B1DE9B0009FF4F /* DownloadFinanceRepoView.xib */,
+				14445BFA23B1DE880009FF4F /* DownloadSalesAndTrendsRepoView.swift */,
+				14445BFE23B1DEA30009FF4F /* DownloadSalesAndTrendsRepoView.xib */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -1579,6 +1591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1481BF9A2399EB530054B538 /* EditDeviceView.xib in Resources */,
+				14445BFD23B1DE9B0009FF4F /* DownloadFinanceRepoView.xib in Resources */,
 				147F1521239E36C4007646D5 /* EditUserView.xib in Resources */,
 				1482EF98238BD6A90047CF58 /* Assets.xcassets in Resources */,
 				147F1527239E4084007646D5 /* MultipleChooseView.xib in Resources */,
@@ -1586,6 +1599,7 @@
 				1481BF962399EB380054B538 /* EditProfileView.xib in Resources */,
 				147F151F239E36B7007646D5 /* EditUserInvitationView.xib in Resources */,
 				1482EF9B238BD6A90047CF58 /* Main.storyboard in Resources */,
+				14445BFF23B1DEA30009FF4F /* DownloadSalesAndTrendsRepoView.xib in Resources */,
 				1481BF8C2399E9020054B538 /* EditCertificateView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1746,6 +1760,7 @@
 				1481BF942399EB280054B538 /* EditProfileView.swift in Sources */,
 				1487698E238E1ECE00396E9C /* ImageAsset.swift in Sources */,
 				1487695F238E1ECD00396E9C /* AppEncryptionDeclarationState.swift in Sources */,
+				14445BF923B1DE6D0009FF4F /* DownloadFinanceRepoView.swift in Sources */,
 				148768F8238E1ECD00396E9C /* GetBetaAppReviewDetailsResourceIDForApp.swift in Sources */,
 				148768CF238E1ECD00396E9C /* AddAccessForBetaGroupsToBuild.swift in Sources */,
 				1487699E238E1ECE00396E9C /* BetaGroupRelationship.swift in Sources */,
@@ -1955,6 +1970,7 @@
 				14876971238E1ECD00396E9C /* AppBetaAppReviewDetailLinkageResponse.swift in Sources */,
 				1487691E238E1ECD00396E9C /* BundleIdCapabilitiesResponse.swift in Sources */,
 				1487698D238E1ECE00396E9C /* PrereleaseVersion.swift in Sources */,
+				14445BFB23B1DE880009FF4F /* DownloadSalesAndTrendsRepoView.swift in Sources */,
 				14876928238E1ECD00396E9C /* BundleIdUpdateRequest.swift in Sources */,
 				14876991238E1ECE00396E9C /* BetaTesterBetaGroupsLinkagesResponse.swift in Sources */,
 				14876965238E1ECD00396E9C /* BuildUpdateRequest.swift in Sources */,

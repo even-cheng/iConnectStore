@@ -8,6 +8,11 @@
 
 import Cocoa
 
+enum DownloadRepoType: Int {
+    case finance = 1
+    case salesAndTrends = 2
+}
+
 class EditFileContentView: NSView {
     
     @IBOutlet weak var titleField: NSTextField!
@@ -17,6 +22,7 @@ class EditFileContentView: NSView {
         didSet {
             if provisionFileType != nil {
                 userRoleFileType = nil
+                downloadRepoType = nil
                 self.addViews()
             }
         }
@@ -26,6 +32,17 @@ class EditFileContentView: NSView {
         didSet {
             if userRoleFileType != nil {
                 provisionFileType = nil
+                downloadRepoType = nil
+                self.addViews()
+            }
+        }
+    }
+    
+    open var downloadRepoType:DownloadRepoType? {
+        didSet {
+            if downloadRepoType != nil {
+                provisionFileType = nil
+                userRoleFileType = nil
                 self.addViews()
             }
         }
@@ -77,6 +94,18 @@ class EditFileContentView: NSView {
     private lazy var editProfileView: EditProfileView = {
         
         let editView = viewForXIB(class_name: "EditProfileView") as! EditProfileView
+        return editView
+    }()
+    
+    private lazy var downloadFinanceRepoView: DownloadFinanceRepoView = {
+        
+        let editView = viewForXIB(class_name: "DownloadFinanceRepoView") as! DownloadFinanceRepoView
+        return editView
+    }()
+    
+    private lazy var downloadSaleAndTrendView: DownloadSalesAndTrendsRepoView = {
+        
+        let editView = viewForXIB(class_name: "DownloadSalesAndTrendsRepoView") as! DownloadSalesAndTrendsRepoView
         return editView
     }()
 
@@ -187,6 +216,28 @@ class EditFileContentView: NSView {
                 
             case .none: break
             }
+       
+        } else if downloadRepoType != nil {
+            
+            switch downloadRepoType {
+            case .finance?:
+                if self.downloadFinanceRepoView.superview == nil {
+                    self.addSubview(self.downloadFinanceRepoView)
+                    self.downloadFinanceRepoView.snp.makeConstraints { (maker) in
+                        maker.edges.equalTo(self)
+                    }
+                    self.titleField.stringValue = "Download Finance Report"
+                }
+            case .salesAndTrends?:
+                if self.downloadSaleAndTrendView.superview == nil {
+                    self.addSubview(self.downloadSaleAndTrendView)
+                    self.downloadSaleAndTrendView.snp.makeConstraints { (maker) in
+                        maker.edges.equalTo(self)
+                    }
+                    self.titleField.stringValue = "Download SalesAndTrends Report"
+                }
+            case .none: break
+            }
         }
         
         self.editUserView.isHidden = (userRoleFileType != .users)
@@ -195,6 +246,8 @@ class EditFileContentView: NSView {
         self.editBundleIDView.isHidden = (provisionFileType != .bundleId)
         self.editDeviceView.isHidden = (provisionFileType != .device)
         self.editProfileView.isHidden = (provisionFileType != .profile)
+        self.downloadFinanceRepoView.isHidden = (downloadRepoType != .finance)
+        self.downloadSaleAndTrendView.isHidden = (downloadRepoType != .salesAndTrends)
     }
     
     @IBAction func CloseAction(_ sender: Any?) {
@@ -260,7 +313,8 @@ class EditFileContentView: NSView {
                 //add cer
                 var roles: [UserRole] = []
                 for i in self.editUserInvitationView.choosed_role_indexs {
-                    roles.append(UserRole(rawValue: self.editUserInvitationView.choose_role_sources[i])!)
+                    let roleValue = self.editUserInvitationView.choose_role_sources[i]
+                    roles.append(UserRole.init(rawValue: roleValue)!)
                 }
                 var appIds: [String] = []
                 for i in self.editUserInvitationView.choosed_apps_indexs {
@@ -275,9 +329,9 @@ class EditFileContentView: NSView {
                 
                 UserRoleData().inviteUser(email: email, firstName: firstName, lastName: lastName, allAppsVisible: allAppsVisible, provisioningAllowed: provisioningAllowed, roles: roles, appsVisibleIds: appIds).done { (_) in
                     complete(true)
-                    }.catch { (error) in
-                        complete(false)
-                        print(error)
+                }.catch { (error) in
+                    complete(false)
+                    print(error)
                 }
             case .none:
                 break
